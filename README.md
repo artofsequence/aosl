@@ -1,7 +1,7 @@
 aosl
 ====
 
-AOSL: Digital Media Story-Telling Format
+AOSL: Digital Story Format
 
 **AOSL is a data format to express digital stories**. 
 It's based on XML for inter-operability (to help building tools around it) and it can be used either for:
