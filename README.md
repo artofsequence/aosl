@@ -3,6 +3,8 @@ AOSL
 
 **Universal Format for Digital Story-Telling**
 
+See Art Of Sequence: http//artofsequence.org
+
 AOSL is a data format to express digital stories. 
 
 It's specified using XML for inter-operability (to help building tools around it) and it can be used either for:
