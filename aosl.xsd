@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <!--
-  AOSL : Art Of Sequence Language 
-  Describe a digital sequence.
-  More infos : http://artofsequence.org
-  
-  Licence : M.I.T.
-  http://www.opensource.org/licenses/mit-license.php
+	AOSL : Art Of Sequence Language 
+	Describe a digital sequence.
+	More infos : http://artofsequence.org
+	
+	Licence : M.I.T.
+	http://www.opensource.org/licenses/mit-license.php
 
-  Read the "documentation" tags for comments on object, attributes and types.
+	Read the "documentation" tags for comments on object, attributes and types.
 -->
 
 <xs:schema xmlns:aos="artofsequence.org/aosl/1.0"
-		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
-		   attributeFormDefault="unqualified"
-		   elementFormDefault="qualified"
-		   targetNamespace="artofsequence.org/aosl/1.0"
-		   version="1.0"
-		   >
+			 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			 attributeFormDefault="unqualified"
+			 elementFormDefault="qualified"
+			 targetNamespace="artofsequence.org/aosl/1.0"
+			 version="1.0"
+			 >
 
 	<xs:element name="sequence" type="aos:sequence" abstract="false" nillable="false">
 		<xs:annotation>
