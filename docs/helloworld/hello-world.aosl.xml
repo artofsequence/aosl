@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sequence xmlns="artofsequence.org/aosl/1.0" name="Hello World" id="hello-world" >
+
+  <library>
+    <resource id="img_hello" type="image" >./media/hello.png</resource>
+    <resource id="img_world" type="image" >./media/world.png</resource>
+  </library>
+
+  <canvas color="white">
+    <area x="800" y="600" />
+    <objects>
+      <sprite id="hello" resource="img_hello" active="false">
+        <graphic></graphic>
+      </sprite>
+      <sprite id="world" resource="img_world" active="false">
+        <graphic></graphic>
+      </sprite>
+    </objects>
+  </canvas>
+
+  <story begin="stage_0" >
+    <navigation></navigation>
+    <moves></moves>
+    <stages>
+      <stage id="stage_0" />
+    </stages>
+  </story>
+
+</sequence>
