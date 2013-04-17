@@ -1,4 +1,7 @@
-= Understanding AOSL
+
+= Understanding AOSL 1.0
+A. Joel Lamotte <klaim@artofsequence.org>
+:toc:
 
 This document is an introduction to the way the AOSL format works, how to read and write it,
 written in a more human-readable prose than the official specification document.
@@ -16,7 +19,10 @@ way it is.
 If you can still directly jump to the technical description starting with [the general
 organisation of the format].
 
+
+
 == Objectives Overview
+
 
 AOSL is, to make it short and simple, a **universal format to describe digital stories**.
 In our context, a digital story is a sequence of "stuffs" happening on the display and
@@ -169,19 +175,20 @@ but we will not talk about this part in this document.
 Obviously, some required attributes and elements are necessary to write a well-formed AOSL file. 
 Here is what a valid AOSL file but with an empty story looks like:
 
+[source,xml]
+----
     <?xml version="1.0" encoding="utf-8" ?>
-
+    
     <sequence xmlns="artofsequence.org/aosl/1.0" 
         id="some-id" 
         name="Some Title" >
     
-        <library>
-        </library>
-    
+        <library></library>
+        
         <canvas>
             <area x="800" y="600" z="0" />
         </canvas>
-    
+        
         <story begin="stage_0" >
             <navigation></navigation>
             <moves></moves>
@@ -189,9 +196,10 @@ Here is what a valid AOSL file but with an empty story looks like:
                 <stage id="stage_0" />
             </stages>
         </story>
-    
+        
     </sequence>
 
+----
 
 
 In this example, we implicitely use the AOSL namespace.
@@ -329,7 +337,6 @@ Before going further, let's define the graphic area that we will use:
 
     <canvas>
         <area x="800" y="600" />
-
         <objects> ... </objects>
     </canvas>
 
@@ -393,7 +400,6 @@ each or our images.
 
     <canvas color="white">
         <area x="800" y="600" />
-
         <objects>
             <sprite id="hello" resource="img_hello" active="false">
                 <graphic></graphic>
@@ -439,6 +445,8 @@ There are other advanced features that we will use in a more complexe example, l
 
 Here is what we have so far:
 
+[source,xml]
+----
     <?xml version="1.0" encoding="utf-8" ?>
 
     <sequence xmlns="artofsequence.org/aosl/1.0" name="Hello World" id="hello-world" >
@@ -465,4 +473,5 @@ Here is what we have so far:
         </story>
 
     </sequence>
+----
 
