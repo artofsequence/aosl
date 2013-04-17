@@ -1,4 +1,4 @@
-# AOSL: Design
+= AOSL: Design
 
 _**WARNING: This document is a work in progress and will evolve a lot until it becomes definitely useful for the community to use. Also please discuss it on the developers mailing list if necessary.**_
 
@@ -6,13 +6,13 @@ The purpose of this document is to be a reference for the community to understan
 
 -----------------
 
-# 1. Problems & Solutions
+= 1. Problems & Solutions
 
 AOSL is meant to solve a set of problems currently plaguing a lot of tools and formats that could otherwise have been used extensively already, but are not. 
 
 Here is a list of things to solve, driving the design of AOSL:
 
-## 1.1. Correct Abstract Representation
+== 1.1. Correct Abstract Representation
 
 Almost all formats currently available that represent some kind of digital sequence (and that are no based on time) have problems unleashing the power of digital platforms to the creators, either by limiting the kind of actions possible or by limiting the target platforms, or worse, by forcing the author to learn some programming skills before being able to really do what he originally wanted to do. In other domains, like graphics, audio and video, tools works with files that have the correct abstraction for the medium, solving almost all problems of limitations concerning that medium. An audio file can contain any kind of sound, an image can contain any kind of flat graphics, a video can contain any kind of animated content. This is not the case for digital sequences that are still very young way of telling stories.
 
@@ -23,13 +23,13 @@ Digital media sequences are simply this idea: the reader control the reading by 
 AOSL is meant to represent exactly that, in a way that allow the creator of the sequence to use whatever he wants to fill the sequence with. That's why it's an abstract format: it describe how things should be in the sequence, what to see and what to hide and "when" in the sequence, without any notion of time.
 Also, it don't assume anything about the flow of the story provided and, to be complete, allow to exploit the digital platform specificities: turing completeness.
 
-## 1.2. Extendable
+== 1.2. Extendable
 
 Most format available to describe sequences are either totally closed or not thought for extension.
 
 AOSL solve this by providing extension points inside it's global structure, but also allow the language itself to be extended. It is thought to be customized by player implementers.
 
-## 1.3. Inter-operable
+== 1.3. Inter-operable
 
 This point is mostly the same limitation than the extendability problem, but in worse: most formats are hard to even interpret by other tools and makes any work to process sequence representations very hard from the beginning to the end of writting the tool.
 
@@ -38,7 +38,7 @@ Having tools that can work together is the basis to allow people sharing and mak
 AOSL is designed in a way that makes inter-operability a non-problem. 
 It worth noting that AOSL is not meant to be read and written by humans, it is meant to be read and written by (human friendly) tools.
 
-## 1.4. Specializable
+== 1.4. Specializable
 
 This point can be associated to the extendability problem in some ways but is the other way around: closed or non-extendable formats force the user to limit themselfs to a limited set of publication platforms. On the other side, a fully abstract representation of any medium will tend to be hard to use in some specific contexts. For example, web pages are better read with a smartphone when optimized for smartphones. It is possible to have a web page be readable for both big screens and little tactile screens, but it gives hard constraints in both cases on what can be in the page and how it can be represented.
 
@@ -48,11 +48,11 @@ One goal of the AOSL design (which is not achieved yet in AOSL 1.0) is that one 
 
 ---------
 
-# 2. Design
+= 2. Design
 
 Here are the key design decisions that have been taken to assure that those problems are solved:
 
-## 2.1. Not Based On Time
+== 2.1. Not Based On Time
 
 This is the most important decision to understand why the format is about a sequence and not a timed sequence.
 As said previously, the real abstract structure of a comics or a presentation is always a sequence that don't have any time representation. Still, it suggests time through graphic space and allow decomposition of action in a fine-grained way or in a more succint or declarative way.
@@ -67,7 +67,7 @@ Effects are modifiers applied to changes occuring between stages. For example, a
 
 Scripts are for extreme cases where the author wants to simply allow interactivity or other kind of time-based procedural animations. Scripts are only run inside a stage, so there can't be scripts between stages, keeping our original design decision intact.
 
-## 2.2. XML
+== 2.2. XML
 
 AOSL is defined via an XSD file and assume that it's most common definition would be XML-based.
 This allows:
@@ -77,7 +77,7 @@ This allows:
  * *Strong Typing*: JSON, YAML and other alternatives have been considered, but none allow easy definition of types. They are more suited to formats that need to change in time, while AOSL is meant to be the inflexible squeleton on which tools would rely to build sequences, like HTML is fixed to allow generic description of documents.
  * *XSD*: There is no good and standard equivalent of xsd format in other alternative formats. Having an XSD file describing the format is an important bonus to allow generating code for tools or even just check sequence files validity.
  
-## 2.3. A Graph Of Changes
+== 2.3. A Graph Of Changes
 
 The initial reflex of any developer who tries to imagine a format to represent a sequence is to... represent a linear sequence in the description of the format. But, as several developer discovered by trying, this approach fails for digital media sequence. 
 
@@ -94,7 +94,7 @@ As often when using a graph of changes to represent such a format (for example i
  * *Analysis of story structure and canvas resources*: presented with both a graph of changes and a list of resources to use in a canvas, tools can easily analyze and optimize resource usage. Other technical benefits can be exploited by having such easily interpretabe structures.
  * *Side effects*: Another particularities of programs that are not exploited in narratives but could be in digital narration are (predictable) "side effects". Whatever that means, the creators are free to use scripting and other facilities associated to a story structure as graph to build something that have yet to be discovered.
 
-## 2.4. Extension Points
+== 2.4. Extension Points
 
 AOSL use the "open/closed" principle: it's core structure is fixed and should be taken as fixed by any tool reading an AOSL file. However, over the fixed sequence-based skeleton that AOSL provide, there are flexible layers allowing tools and players implementors to make the format exploit the specificities or their tools and players.
 
@@ -104,7 +104,7 @@ The extension points are:
  * *Extension*: some elements in the AOSL format provide an "extension" tag. Inside this tag, any information can be provided. It can be totally ignored by AOSL interpreters (tools or players) but it can also be used to give additional special data to a specific player or tool.
  * *Scripts*: scripts can be added to objects and stages. This complete the potential exendability of the format, as anything that cannot be just declared but have to be done in a generic way could be implemented by scripts, assuming the players can read the scripts.
  
-## 2.5. Media Agnostic
+== 2.5. Media Agnostic
 
 An AOSL file have a "library" that is a list of resource files to load to read the sequence. Those resources can be of any kind, even if clues can be given to the interpreter by specifying the kind of media it is. However, virtually any kind of media can be used inside a sequence.
 
@@ -113,11 +113,11 @@ It is the role of tools to make sure that a sequence will use formats that are a
 
 AOSL only structure the pacing of the narration, it doesn't require nor limit the kind of media that can be used. That's why we talk about digital MEDIA sequences. 
 
-## 2.6. 3D Space
+== 2.6. 3D Space
 
 To make sure the graphic and audio representations can be manipulated freely and can be of any kind, AOSL use 3D space representations for everything that have a position.
 This can complexify tool design if the 3D space is exploited by the authors, but it also generalize any of their use and allow simple transition to OpenGL (or WebGL, or...) implementations for example.
 
-## 2.7 Capability Based Adaptability
+== 2.7 Capability Based Adaptability
 
 Not all interpreters/players are equal and can do the same things. For example, some will allow videos while others will not. 
