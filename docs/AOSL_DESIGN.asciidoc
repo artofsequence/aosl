@@ -4,7 +4,7 @@ _**WARNING: This document is a work in progress and will evolve a lot until it b
 
 The purpose of this document is to be a reference for the community to understand the thinking behind the design decisions taken for AOSL.
 
------------------
+'''
 
 = 1. Problems & Solutions
 
@@ -46,7 +46,7 @@ AOSL allow both generalisation and specialisation of the representation of a dig
 
 One goal of the AOSL design (which is not achieved yet in AOSL 1.0) is that one AOSL file should be able to represent different versions of the same story, depending on the interpreter capabilities.
 
----------
+'''
 
 = 2. Design
 

@@ -28,7 +28,7 @@ AOSL allow the user to exploit (with moderation) these specificities.
 Another goal of AOSL's design is to allow the author to specify in one place how the content of the story
 should be modified depending on the capabilities of the interpreter.
 
-[More documentation can be found on the wiki.](https://github.com/artofsequence/aosl/wiki)
+[More documentation can be found on the 'docs' directory.](./docs)
 
 ## Derived format
 
