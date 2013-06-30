@@ -1,0 +1,15 @@
+AOSL Standard 
+=============
+A. Joël Lamotte <klaim@artofsequence.org>
+v1.0
+:toc:
+
+
+Abstract
+--------
+
+This document is the official specification of the AOSL format.
+This version specify AOSL 2.0 format.
+
+
+
