@@ -1,4 +1,6 @@
-= AOSL: Design
+= AOSL: Design Guidelines
+A. Joël Lamotte <klaim@artofsequence.org>
+:toc:
 
 _**WARNING: This document is a work in progress and will evolve a lot until it becomes definitely useful for the community to use. Also please discuss it on the developers mailing list if necessary.**_
 

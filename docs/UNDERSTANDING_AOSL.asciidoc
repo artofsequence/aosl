@@ -1,6 +1,5 @@
-
-= Understanding AOSL 1.0
-A. Joel Lamotte <klaim@artofsequence.org>
+= Understanding AOSL
+A. Joël Lamotte <klaim@artofsequence.org>
 :toc:
 
 This document is an introduction to the way the AOSL format works, how to read and write it,
