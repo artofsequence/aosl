@@ -155,9 +155,9 @@ With all that in mind, it's now time to get into the technical details.
 == General Organisation
 
 AOSL is an XML-based format.
-For version 1.0 of the language, the XML namespace for all AOSL tags is :
+For version 2.0 of the language, the XML namespace for all AOSL tags is :
 
-    artofsequence.org/aosl/1.0
+    artofsequence.org/aosl/2.0
 
 Most of the time we use the .aosl suffix for AOSL files, but this is not a requirement.
 This namespace is also a public adress where you can get the xsd specification file.
@@ -176,9 +176,9 @@ Here is what a valid AOSL file but with an empty story looks like:
 
 [source,xml]
 ----
-    <?xml version="1.0" encoding="utf-8" ?>
+    <?xml version="2.0" encoding="utf-8" ?>
     
-    <sequence xmlns="artofsequence.org/aosl/1.0" 
+    <sequence xmlns="artofsequence.org/aosl/2.0" 
         id="some-id" 
         name="Some Title" >
     
@@ -446,9 +446,9 @@ Here is what we have so far:
 
 [source,xml]
 ----
-    <?xml version="1.0" encoding="utf-8" ?>
+    <?xml version="2.0" encoding="utf-8" ?>
 
-    <sequence xmlns="artofsequence.org/aosl/1.0" name="Hello World" id="hello-world" >
+    <sequence xmlns="artofsequence.org/aosl/2.0" name="Hello World" id="hello-world" >
 
         <library>
             <resource id="img_hello" type="image" >./media/hello.png</resource>
