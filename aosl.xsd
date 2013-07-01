@@ -5,8 +5,7 @@
 	Universal Born-Digital Story-Telling Format
 	More infos : http://artofsequence.org
 	
-	Licence : M.I.T.
-	http://www.opensource.org/licenses/mit-license.php
+	Licence : M.I.T. (see	http://www.opensource.org/licenses/mit-license.php )
 
 	Read the "documentation" tags for comments on object, attributes and types.
 -->
@@ -477,7 +476,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="story" type="aos:story" >
+			<xs:element name="storygraph" type="aos:storygraph" >
 				<xs:annotation>
 					<xs:documentation>Description of the structure of the sequence.</xs:documentation>
 				</xs:annotation>
@@ -664,11 +663,11 @@
 
 
 
-	<xs:complexType name="story" final="#all" >
+	<xs:complexType name="storygraph" final="#all" >
 		<xs:annotation>
 			<xs:documentation>
-				The Story describe the structure of the sequence : the relation between the different stages of the sequence.
-				It's made of Stages connected by Moves, describing what should happens when we get from one Stage to another.
+				The StoryGraph describe the structure of the sequence : it's a set of transitions that will generate the sequence.
+				It's made of Nodes connected by Transitions, describing what should happens when we get from one Node to another.
 			</xs:documentation>
 		</xs:annotation>
 
@@ -685,28 +684,28 @@
 
 			<xs:element name="navigation" type="aos:navigation"  minOccurs="0" >
 				<xs:annotation>
-					<xs:documentation>Navigation configuration used for the whole sequence. Can be overloaded at each Stage of the Sequence.</xs:documentation>
+					<xs:documentation>Navigation configuration used for the whole sequence. Can be overloaded at each Node of the Sequence.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="stages" >
+			<xs:element name="nodes" >
 				<xs:annotation>
-					<xs:documentation>Stages of this Sequence.</xs:documentation>
+					<xs:documentation>Nodes of this Sequence.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence minOccurs="1" maxOccurs="unbounded">
-						<xs:element name="stage" type="aos:stage" />
+						<xs:element name="node" type="aos:node" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 
-			<xs:element name="moves" >
+			<xs:element name="transitions" >
 				<xs:annotation>
-					<xs:documentation>Moves, containing Changes between Stages.</xs:documentation>
+					<xs:documentation>Transitions, containing Changes between Nodes.</xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence minOccurs="0" maxOccurs="unbounded" >
-						<xs:element name="move" type="aos:move" />
+						<xs:element name="transition" type="aos:transition" />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
@@ -715,7 +714,7 @@
 
 		<xs:attribute name="begin" type="aos:stage_ref" use="required" >
 			<xs:annotation>
-				<xs:documentation>The Stage to begin the Sequence with.</xs:documentation>
+				<xs:documentation>The Node to begin the Sequence with.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 
@@ -1102,7 +1101,7 @@
 					<xs:documentation>
 						Script attached to this object.
 						It will be activated when this object is activated and deactivated when this object is too.
-						The execution will not stop between stages.
+						The execution will not stop between nodes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1246,13 +1245,13 @@
 
 
 
-	<!--##### Story Elements #############################################################-->
+	<!--##### StoryGraph Elements #############################################################-->
 
-	<xs:complexType name="stage" final="#all" >
+	<xs:complexType name="node" final="#all" >
 		<xs:annotation>
 			<xs:documentation>
-				A Stage describe a specific state in the path followed by the player/interpreter when playing the Sequence.
-				A Stage is to a Story what a vertex is to a graph.
+				A Node describe a specific state in the path followed by the player/interpreter when playing the Sequence.
+				A Node is to a StoryGraph what a vertex is to a graph.
 			</xs:documentation>
 		</xs:annotation>
 
@@ -1261,8 +1260,8 @@
 			<xs:element name="navigation" type="aos:navigation" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>
-						Navigation informations that will overload the Story navigation informations when we reach this stage.
-						Setting this stage-specific Navigation is useful for allowing special actions or choices on specific occasions.
+						Navigation informations that will overload the StoryGraph navigation informations when we reach this node.
+						Setting this node-specific Navigation is useful for allowing special actions or choices on specific occasions.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1270,7 +1269,7 @@
 			<xs:element name="script" type="aos:script" minOccurs="0" >
 				<xs:annotation>
 					<xs:documentation>
-						Script to execute when we reach this stage.
+						Script to execute when we reach this node.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:element>
@@ -1286,21 +1285,21 @@
 
 		<xs:attribute name="id" type="aos:stage_id" use="required" >
 			<xs:annotation>
-				<xs:documentation>Id of the stage.</xs:documentation>
+				<xs:documentation>Id of the node.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 
 	</xs:complexType>
 
 
-	<xs:complexType name="move" final="#all" >
+	<xs:complexType name="transition" final="#all" >
 		<xs:annotation>
 			<xs:documentation>
-				A Move is a set of Changes between two Stages applied to Objects in the Canvas.
-				A Move is to a Story what an edge is to an oriented graph.
-				There can be as many Moves in a Story as combinations possibles of a pair of different Stages in the Story, but no more.
-				Therefore, a Move will contain as many Changes necessaries to apply between two Stages and should be unique for this pair of Stages.
-				A move can reference several sources stages to move from, but only one unique target stage to go to.
+				A Transition is a set of Changes between two Nodes applied to Objects in the Canvas.
+				A Transition is to a StoryGraph what an edge is to an oriented graph.
+				There can be as many Transitions in a StoryGraph as combinations possibles of a pair of different Nodes in the StoryGraph, but no more.
+				Therefore, a Transition will contain as many Changes necessaries to apply between two Nodes and should be unique for this pair of Nodes.
+				A transition can reference several sources nodes to transition from, but only one unique target node to go to.
 			</xs:documentation>
 		</xs:annotation>
 
@@ -1323,10 +1322,10 @@
 		<xs:attribute name="from" type="aos:stage_ref_list" use="required" >
 			<xs:annotation>
 				<xs:documentation>
-					Id of the Stage to move from.
-					Several stages can be referenced in the case this same move
-					should to be possible from several stages.
-					Automatic search of stage refs can be used too.
+					Id of the Node to transition from.
+					Several nodes can be referenced in the case this same transition
+					should to be possible from several nodes.
+					Automatic search of node refs can be used too.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
@@ -1334,27 +1333,27 @@
 		<xs:attribute name="to" type="aos:unique_stage_ref" use="required" >
 			<xs:annotation>
 				<xs:documentation>
-					Id of the Stage to move to. 
+					Id of the Node to transition to. 
 					Special search ids are forbidden.
-					Only one stage can be the target of a move.
+					Only one node can be the target of a transition.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 
 		<xs:attribute name="id" type="aos:move_id" use="required" >
 			<xs:annotation>
-				<xs:documentation>Id of this Move.</xs:documentation>
+				<xs:documentation>Id of this Transition.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
 
 		<xs:attribute name="default" type="xs:boolean" default="false" >
 			<xs:annotation>
 				<xs:documentation>
-					Define this move as the one the interpreter have to go through when it is deciding automatically
-					which move to take from the stage this move is attached to.
-					For example, if the interpreter is commanded to go "next" but there is several moves from which
-					the current stage can go through, the one marked "default" should be the one choosen.
-					Having more than one move being default is invalid.
+					Define this transition as the one the interpreter have to go through when it is deciding automatically
+					which transition to take from the node this transition is attached to.
+					For example, if the interpreter is commanded to go "next" but there is several transitions from which
+					the current node can go through, the one marked "default" should be the one choosen.
+					Having more than one transition being default is invalid.
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
@@ -1401,7 +1400,7 @@
 		<xs:annotation>
 			<xs:documentation>
 				A Change describe a set of transformations (geometric or not) that will be applied to an Object.
-				Changes are contained in Moves that are applied when going from one Stage to another.
+				Changes are contained in Transitions that are applied when going from one Node to another.
 				A Change can be a transform, activate, deactivate, switch or any other interpreter-specific change.
 			</xs:documentation>
 		</xs:annotation>
@@ -1547,9 +1546,9 @@
 	<xs:complexType name="navigation" final="#all" >
 		<xs:annotation>
 			<xs:documentation>
-				Navigation informations are used by the player/interpreter to know how to bind user actions to Moves.
+				Navigation informations are used by the player/interpreter to know how to bind user actions to Transitions.
 				It hold a set of Events that define responses to events from user input or player/interpreter informations.
-				It can be used for defining the global navigation or more precisely in the context of a specific Stage.
+				It can be used for defining the global navigation or more precisely in the context of a specific Node.
 			</xs:documentation>
 		</xs:annotation>
 
@@ -1568,10 +1567,10 @@
 			<xs:documentation>An Event specify a response to inputs from the user or the player/intepreter.</xs:documentation>
 		</xs:annotation>
 
-		<xs:attribute name="move" type="aos:move_ref" use="required" >
+		<xs:attribute name="transition" type="aos:move_ref" use="required" >
 			<xs:annotation>
 				<xs:documentation>
-					Id of the move to go to if this Event is triggered,
+					Id of the transition to go to if this Event is triggered,
 					or "auto_next" if there is only one next possibility
 					or "auto_previous" to get back in the path followed by the player.
 				</xs:documentation>
@@ -1620,7 +1619,7 @@
 			<xs:documentation>
 				An Input is an Event that is triggered by the player/interpreter,
 				most of the time buttons pushed or other hardware or system related inputs.
-				It is useful to make keyboard keys goes to the next or the previous Move/Stage.
+				It is useful to make keyboard keys goes to the next or the previous Transition/Node.
 			</xs:documentation>
 		</xs:annotation>
 
@@ -1724,7 +1723,7 @@
 
 	<xs:simpleType name="stage_id">
 		<xs:annotation>
-			<xs:documentation>Stage Id type.</xs:documentation>
+			<xs:documentation>Node Id type.</xs:documentation>
 		</xs:annotation>
 
 		<xs:restriction base="aos:unique_id" />
@@ -1733,7 +1732,7 @@
 
 	<xs:simpleType name="move_id">
 		<xs:annotation>
-			<xs:documentation>Move Id type.</xs:documentation>
+			<xs:documentation>Transition Id type.</xs:documentation>
 		</xs:annotation>
 
 		<xs:restriction base="aos:unique_id" />
@@ -1781,11 +1780,11 @@
 	</xs:simpleType>
 
 
-	<!--# Stages ##-->
+	<!--# Nodes ##-->
 
 	<xs:simpleType name="unique_stage_ref">
 		<xs:annotation>
-			<xs:documentation>Reference to a Stage.</xs:documentation>
+			<xs:documentation>Reference to a Node.</xs:documentation>
 		</xs:annotation>
 
 		<xs:restriction base="aos:unique_ref" />
@@ -1793,7 +1792,7 @@
 	
 	<xs:simpleType name="stage_ref">
 		<xs:annotation>
-			<xs:documentation>Reference to a Stage or to a special stage search.</xs:documentation>
+			<xs:documentation>Reference to a Node or to a special node search.</xs:documentation>
 		</xs:annotation>
 
 		<xs:union memberTypes="aos:unique_stage_ref aos:special_stage_ref" />
@@ -1802,7 +1801,7 @@
 
 	<xs:simpleType name="stage_ref_list">
 		<xs:annotation>
-			<xs:documentation>List of references to a Stages.</xs:documentation>
+			<xs:documentation>List of references to a Nodes.</xs:documentation>
 		</xs:annotation>
 
 		<xs:list itemType="aos:stage_ref" />
@@ -1811,15 +1810,15 @@
 
 	<xs:simpleType name="special_stage_ref">
 		<xs:annotation>
-			<xs:documentation>Reference to one or more stages automatically found by using a search logic. </xs:documentation>
+			<xs:documentation>Reference to one or more nodes automatically found by using a search logic. </xs:documentation>
 		</xs:annotation>
 
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="#all">
 				<xs:annotation>
 					<xs:documentation>
-						Represent all the stages.
-						Useful to allow a move to be available from all the stages.
+						Represent all the nodes.
+						Useful to allow a transition to be available from all the nodes.
 					</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
@@ -1838,11 +1837,11 @@
 
 	</xs:simpleType>
 
-	<!--# Moves ##-->
+	<!--# Transitions ##-->
 
 	<xs:simpleType name="unique_move_ref">
 		<xs:annotation>
-			<xs:documentation>Reference to a Move.</xs:documentation>
+			<xs:documentation>Reference to a Transition.</xs:documentation>
 		</xs:annotation>
 
 		<xs:restriction base="aos:unique_ref" />
@@ -1851,7 +1850,7 @@
 
 	<xs:simpleType name="special_move_ref">
 		<xs:annotation>
-			<xs:documentation> Get automatically a move reference by using a search logic. </xs:documentation>
+			<xs:documentation> Get automatically a transition reference by using a search logic. </xs:documentation>
 		</xs:annotation>
 
 		<xs:restriction base="xs:string">
@@ -1859,9 +1858,9 @@
 			<xs:enumeration value="#next" >
 				<xs:annotation>
 					<xs:documentation>
-						Find the next logical move to go to.
-						Should be usable only if there is only one move possible to continue in the sequence.
-						If there is more than one move available, the one which is marked by the "default" attribute
+						Find the next logical transition to go to.
+						Should be usable only if there is only one transition possible to continue in the sequence.
+						If there is more than one transition available, the one which is marked by the "default" attribute
 						should be referenced.
 						If there is several default, the sequence is invalid.
 					</xs:documentation>
@@ -1870,7 +1869,7 @@
 
 			<xs:enumeration value="#previous" >
 				<xs:annotation>
-					<xs:documentation>Go back in the path followed by the player (or do nothing at the beginning Stage).</xs:documentation>
+					<xs:documentation>Go back in the path followed by the player (or do nothing at the beginning Node).</xs:documentation>
 				</xs:annotation>
 			</xs:enumeration>
 
@@ -1880,7 +1879,7 @@
 
 	<xs:simpleType name="move_ref">
 		<xs:annotation>
-			<xs:documentation>Reference to a move or automatically find a move reference. (see special_move_ref)</xs:documentation>
+			<xs:documentation>Reference to a transition or automatically find a transition reference. (see special_move_ref)</xs:documentation>
 		</xs:annotation>
 
 		<xs:union memberTypes="aos:unique_move_ref aos:special_move_ref" />
