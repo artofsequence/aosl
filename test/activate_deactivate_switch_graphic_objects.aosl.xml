@@ -6,80 +6,80 @@
     =======================================================
 
     A simple sequence that display an image, another one and remove them after that.
-    Switch a third image at each move.
+    Switch a third image at each transition.
 
 -->
 
-<sequence xmlns="artofsequence.org/aosl/1.0" 
-	id="test-activate-deactivate-switch-graphic-objects" 
-	name="Test : Activate, Deactivate and Switch graphic objects"
+<sequence xmlns="artofsequence.org/aosl/2.0"
+  id="test-activate-deactivate-switch-graphic-objects"
+  name="Test : Activate, Deactivate and Switch graphic objects"
 >
-	
 
-    <library>
-        
-        <resource id="image_character" type="image">./resources/character.png</resource>
-        <resource id="image_landscape" type="image">./resources/landscape.png</resource>
-        <resource id="image_icon" type="image">./resources/icon.png</resource>
-        
-    </library>
 
-    <canvas>
-        <area x="800" y="600" z="0" />
+  <library>
 
-        <objects>
-            <sprite id="background" resource="image_landscape">
-                <graphic></graphic>
-            </sprite>
-            
-            <sprite id="a_character" resource="image_character">
-                <graphic></graphic>
-            </sprite>
+    <resource id="image_character" type="image">./resources/character.png</resource>
+    <resource id="image_landscape" type="image">./resources/landscape.png</resource>
+    <resource id="image_icon" type="image">./resources/icon.png</resource>
 
-            <sprite id="icon" resource="image_icon">
-                <graphic></graphic>
-            </sprite>
-            
-        </objects>
-    </canvas>
+  </library>
 
-    <story begin="stage_0" >
+  <canvas>
+    <area x="800" y="600" z="0" />
 
-        <navigation>
-            
-        </navigation>
+    <objects>
+      <sprite id="background" resource="image_landscape">
+        <graphic></graphic>
+      </sprite>
 
-        <moves>
-            
-            <move id="move_0_1" from="stage_0" to="stage_1" >
-                <activate object="background" />
-            </move>
-            
-            <move id="move_1_2" from="stage_1" to="stage_2" >
-                <activate object="a_character" />
-                <switch object="icon" />
-            </move>
+      <sprite id="a_character" resource="image_character">
+        <graphic></graphic>
+      </sprite>
 
-            <move id="move_2_3" from="stage_2" to="stage_3" >
-                <deactivate object="a_character" />
-                <switch object="icon" />
-            </move>
+      <sprite id="icon" resource="image_icon">
+        <graphic></graphic>
+      </sprite>
 
-            <move id="move_3_4" from="stage_3" to="stage_4" >
-                <deactivate object="background" />
-                <switch object="icon" />
-            </move>
-            
-        </moves>
+    </objects>
+  </canvas>
 
-        <stages>
-            <stage id="stage_0" />
-            <stage id="stage_1" />
-            <stage id="stage_2" />
-            <stage id="stage_3" />
-            <stage id="stage_4" />
-        </stages>
-        
-    </story>
+  <storygraph begin="stage_0" >
+
+    <navigation>
+
+    </navigation>
+
+    <transitions>
+
+      <transition id="move_0_1" from="stage_0" to="stage_1" >
+        <activate object="background" />
+      </transition>
+
+      <transition id="move_1_2" from="stage_1" to="stage_2" >
+        <activate object="a_character" />
+        <switch object="icon" />
+      </transition>
+
+      <transition id="move_2_3" from="stage_2" to="stage_3" >
+        <deactivate object="a_character" />
+        <switch object="icon" />
+      </transition>
+
+      <transition id="move_3_4" from="stage_3" to="stage_4" >
+        <deactivate object="background" />
+        <switch object="icon" />
+      </transition>
+
+    </transitions>
+
+    <nodes>
+      <node id="stage_0" />
+      <node id="stage_1" />
+      <node id="stage_2" />
+      <node id="stage_3" />
+      <node id="stage_4" />
+    </nodes>
+
+  </storygraph>
 
 </sequence>

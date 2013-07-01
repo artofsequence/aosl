@@ -12,29 +12,29 @@
 
 <sequence xmlns="artofsequence.org/aosl/1.0" id="test-empty" name="Test : Empty Sequence" >
 
-    <library>
-    </library>
+  <library>
+  </library>
 
-    <canvas color="#0011FF" >
-        <area x="800" y="600" z="0" />
-        <objects>
-            
-        </objects>
-    </canvas>
+  <canvas color="#0011FF" >
+    <area x="800" y="600" z="0" />
+    <objects>
 
-    <story begin="stage_0" >
+    </objects>
+  </canvas>
 
-        <navigation>
-            
-        </navigation>
-        
-        <moves>
-        </moves>
+  <storygraph begin="stage_0" >
 
-        <stages>
-            <stage id="stage_0" />
-        </stages>
-        
-    </story>
+    <navigation>
+
+    </navigation>
+
+    <transitions>
+    </transitions>
+
+    <nodes>
+      <node id="stage_0" />
+    </nodes>
+
+  </storygraph>
 
 </sequence>
