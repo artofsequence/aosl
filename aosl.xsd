@@ -16,7 +16,7 @@
 			 attributeFormDefault="unqualified"
 			 elementFormDefault="qualified"
 			 targetNamespace="artofsequence.org/aosl/2.0"
-			 version="2.0"
+			 version="2.0-draft1"
 			 >
 
 	<xs:element name="sequence" type="aos:sequence" abstract="false" nillable="false">
