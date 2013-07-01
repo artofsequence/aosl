@@ -2,7 +2,7 @@
 
 <!--
 	AOSL : Art Of Sequence Language 
-	Describe a digital sequence.
+	Universal Born-Digital Story-Telling Format
 	More infos : http://artofsequence.org
 	
 	Licence : M.I.T.
@@ -11,12 +11,12 @@
 	Read the "documentation" tags for comments on object, attributes and types.
 -->
 
-<xs:schema xmlns:aos="artofsequence.org/aosl/1.0"
+<xs:schema xmlns:aos="artofsequence.org/aosl/2.0"
 			 xmlns:xs="http://www.w3.org/2001/XMLSchema"
 			 attributeFormDefault="unqualified"
 			 elementFormDefault="qualified"
-			 targetNamespace="artofsequence.org/aosl/1.0"
-			 version="1.0"
+			 targetNamespace="artofsequence.org/aosl/2.0"
+			 version="2.0"
 			 >
 
 	<xs:element name="sequence" type="aos:sequence" abstract="false" nillable="false">
