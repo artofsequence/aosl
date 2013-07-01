@@ -1358,17 +1358,19 @@
 			</xs:annotation>
 		</xs:attribute>
 
-
 	</xs:complexType>
 
-
-
-	<xs:group name="group_change_extensions">
+	
+	<xs:complexType name="change" abstract="true">
 		<xs:annotation>
-			<xs:documentation>Extension properties for Changes.</xs:documentation>
+			<xs:documentation>
+				A Change describe a set of transformations (geometric or not) that will be applied to an Object.
+				Changes are contained in Transitions that are applied when going from one Node to another.
+				A Change can be a transform, activate, deactivate, switch or any other interpreter-specific change.
+			</xs:documentation>
 		</xs:annotation>
 
-		<xs:sequence>
+		<xs:sequence maxOccurs="unbounded" minOccurs="0" >
 
 			<xs:element name="effects" minOccurs="0" maxOccurs="1" >
 				<xs:annotation>
@@ -1394,18 +1396,6 @@
 			</xs:element>
 
 		</xs:sequence>
-	</xs:group>
-
-	<xs:complexType name="change" abstract="true">
-		<xs:annotation>
-			<xs:documentation>
-				A Change describe a set of transformations (geometric or not) that will be applied to an Object.
-				Changes are contained in Transitions that are applied when going from one Node to another.
-				A Change can be a transform, activate, deactivate, switch or any other interpreter-specific change.
-			</xs:documentation>
-		</xs:annotation>
-
-		<xs:group ref="aos:group_change_extensions" />
 
 		<xs:attribute name="object" type="aos:object_ref_list"  use="required">
 			<xs:annotation>
