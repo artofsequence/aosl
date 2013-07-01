@@ -2,81 +2,81 @@
 
 <!--
 
-    AOSL Test : A simple loop in the story.
-    =============================================
+		AOSL Test : A simple loop in the story.
+		=============================================
 
-    A simple sequence with a simple loop in the story.
+		A simple sequence with a simple loop in the story.
 
 -->
 
 <sequence xmlns="artofsequence.org/aosl/2.0"
-          name="Test : A simple loop in the story"
-          id="test-simple-loop"
+					name="Test : A simple loop in the story"
+					id="test-simple-loop"
 >
 
-  <library>
-    <resource id="image_character" type="image">./resources/character.png</resource>
-  </library>
+	<library>
+		<resource id="image_character" type="image">./resources/character.png</resource>
+	</library>
 
-  <canvas>
-    <area x="800" y="600" z="0" />
+	<canvas>
+		<area x="800" y="600" z="0" />
 
-    <objects>
-      <sprite id="a_character" resource="image_character" active="false" />
-    </objects>
-  </canvas>
+		<objects>
+			<sprite id="a_character" resource="image_character" active="false" />
+		</objects>
+	</canvas>
 
-  <storygraph begin="stage_0" >
+	<storygraph begin="stage_0" >
 
-    <navigation>
+		<navigation>
 
-    </navigation>
+		</navigation>
 
-    <transitions>
+		<transitions>
 
-      <transition id="move_0_1" from="stage_0" to="stage_1" >
-        <activate object="#all" />
-        <transform object="a_character">
-          <absolute>
-            <translation x="100" y="100" />
-          </absolute>
-          <relative>
-            <translation x="10" />
-          </relative>
-        </transform>
-      </transition>
+			<transition id="move_0_1" from="stage_0" to="stage_1" >
+				<activate object="#all" />
+				<transform object="a_character">
+					<absolute>
+						<translation x="100" y="100" />
+					</absolute>
+					<relative>
+						<translation x="10" />
+					</relative>
+				</transform>
+			</transition>
 
-      <transition id="move_1_A" from="stage_1" to="stage_A" >
-        <switch object="#all" />
-      </transition>
+			<transition id="move_1_A" from="stage_1" to="stage_A" >
+				<switch object="#all" />
+			</transition>
 
-      <transition id="move_A_B" from="stage_A" to="stage_B" >
-        <switch object="#all" />
-      </transition>
+			<transition id="move_A_B" from="stage_A" to="stage_B" >
+				<switch object="#all" />
+			</transition>
 
-      <transition id="move_B_1" from="stage_B" to="stage_1" >
-        <switch object="#all" />
-      </transition>
+			<transition id="move_B_1" from="stage_B" to="stage_1" >
+				<switch object="#all" />
+			</transition>
 
-      <transition id="move_1_2" from="stage_1" to="stage_2" >
-        <activate object="#all" />
-      </transition>
+			<transition id="move_1_2" from="stage_1" to="stage_2" >
+				<activate object="#all" />
+			</transition>
 
-      <transition id="move_end" from="#all" to="stage_end" >
-        <deactivate object="#all" />
-      </transition>
+			<transition id="move_end" from="#all" to="stage_end" >
+				<deactivate object="#all" />
+			</transition>
 
-    </transitions>
+		</transitions>
 
-    <nodes>
-      <node id="stage_0" />
-      <node id="stage_1" />
-      <node id="stage_A" />
-      <node id="stage_B" />
-      <node id="stage_2" />
-      <node id="stage_end" />
-    </nodes>
+		<nodes>
+			<node id="stage_0" />
+			<node id="stage_1" />
+			<node id="stage_A" />
+			<node id="stage_B" />
+			<node id="stage_2" />
+			<node id="stage_end" />
+		</nodes>
 
-  </storygraph>
+	</storygraph>
 
 </sequence>

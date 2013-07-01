@@ -2,78 +2,78 @@
 
 <!--
 
-    AOSL Test : A simple branch in the story.
-    =============================================
+		AOSL Test : A simple branch in the story.
+		=============================================
 
-    A simple sequence with a simple branch in the story.
+		A simple sequence with a simple branch in the story.
 
 -->
 
 <sequence xmlns="artofsequence.org/aosl/2.0"
-          name="Test : A simple branch in the story"
-          id="test-simple-branch"
+					name="Test : A simple branch in the story"
+					id="test-simple-branch"
 >
 
-  <library>
-    <resource id="image_character" type="image">./resources/character.png</resource>
-  </library>
+	<library>
+		<resource id="image_character" type="image">./resources/character.png</resource>
+	</library>
 
-  <canvas>
-    <area x="800" y="600" z="0" />
+	<canvas>
+		<area x="800" y="600" z="0" />
 
-    <objects>
-      <sprite id="a_character" resource="image_character" active="true">
-        <graphic></graphic>
-      </sprite>
-    </objects>
-  </canvas>
+		<objects>
+			<sprite id="a_character" resource="image_character" active="true">
+				<graphic></graphic>
+			</sprite>
+		</objects>
+	</canvas>
 
-  <storygraph begin="stage_0" >
+	<storygraph begin="stage_0" >
 
-    <navigation>
+		<navigation>
 
-    </navigation>
+		</navigation>
 
-    <transitions>
+		<transitions>
 
-      <transition id="move_0_1A" from="stage_0" to="stage_1A" default="true" >
-        <transform object="a_character">
-          <relative>
-            <translation x="100" y="100" />
-          </relative>
-        </transform>
-      </transition>
+			<transition id="move_0_1A" from="stage_0" to="stage_1A" default="true" >
+				<transform object="a_character">
+					<relative>
+						<translation x="100" y="100" />
+					</relative>
+				</transform>
+			</transition>
 
-      <transition id="move_0_1B" from="stage_0" to="stage_1B" >
-        <transform object="a_character">
-          <relative>
-            <translation x="200" y="200" />
-          </relative>
-        </transform>
-      </transition>
+			<transition id="move_0_1B" from="stage_0" to="stage_1B" >
+				<transform object="a_character">
+					<relative>
+						<translation x="200" y="200" />
+					</relative>
+				</transform>
+			</transition>
 
-      <transition id="move_1_2" from="stage_1A stage_1B" to="stage_2" >
-        <transform object="a_character">
-          <relative>
-            <translation x="-100" y="-100" />
-          </relative>
-        </transform>
-      </transition>
+			<transition id="move_1_2" from="stage_1A stage_1B" to="stage_2" >
+				<transform object="a_character">
+					<relative>
+						<translation x="-100" y="-100" />
+					</relative>
+				</transform>
+			</transition>
 
-      <transition id="move_end" from="#all" to="stage_end" >
-        <deactivate object="#all" />
-      </transition>
+			<transition id="move_end" from="#all" to="stage_end" >
+				<deactivate object="#all" />
+			</transition>
 
-    </transitions>
+		</transitions>
 
-    <nodes>
-      <node id="stage_0" />
-      <node id="stage_1A" />
-      <node id="stage_1B" />
-      <node id="stage_2" />
-      <node id="stage_end" />
-    </nodes>
+		<nodes>
+			<node id="stage_0" />
+			<node id="stage_1A" />
+			<node id="stage_1B" />
+			<node id="stage_2" />
+			<node id="stage_end" />
+		</nodes>
 
-  </storygraph>
+	</storygraph>
 
 </sequence>
