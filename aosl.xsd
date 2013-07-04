@@ -760,7 +760,7 @@
 				</xs:annotation>
 			</xs:element>
 
-			<xs:element name="infos" type="aos:extension" minOccurs="0">
+			<xs:element name="info" type="aos:extension" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Additional arbitrary informations about the author.</xs:documentation>
 				</xs:annotation>
