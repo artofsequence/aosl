@@ -397,6 +397,8 @@ As there are several types or media resources, there is also several kind of obj
 need to use images, so the object type we will use is `<sprite>`. We will need two sprites, one for
 each or our images.
 
+[source,xml]
+----
     <canvas color="white">
         <area x="800" y="600" />
         <objects>
@@ -407,6 +409,7 @@ each or our images.
                 <graphic></graphic>
             </sprite>
         </objects>
+----
 
 Whatever the type, sprite or another, each object have a set of common attributes:
  - "id": a unique identifier, used later in the story to manipulate the object;
