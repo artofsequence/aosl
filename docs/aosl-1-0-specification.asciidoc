@@ -9,7 +9,7 @@ Abstract
 --------
 
 This document is the official specification of the AOSL format.
-This version specify AOSL 2.0 format.
+This version specify AOSL 1.0 format.
 
 
 
