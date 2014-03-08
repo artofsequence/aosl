@@ -30,7 +30,6 @@ should be modified depending on the capabilities of the interpreter.
 
 [More documentation can be found on the 'docs' directory.](./docs)
 
-## Derived format
+## Derived format: XAOSL
 
-There are works in progress to specify another file format that would be based on AOSL but would embedd all resources 
-into one file. Work on this new format can be found here.
+XAOSL is another file format that is based on AOSL but embedd all resources into one archive file. 
