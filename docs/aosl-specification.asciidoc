@@ -17,9 +17,7 @@ This is the specification for version 1.0 of AOSL.
 
 2. AOSL is a universal format for representing narratives implemented using digital plateforms. It's purpose is to be a bridge between tools (for authors, publishers and developers), interpreters (also called "players") in a variety of 
 
-2. The implementations using this specification are able to read, interpret and modify AOSL documents in an inter-operable way, which means that document read, interpreted
-and modified by one implementation can be read, interpreted and modified by another
-as long as both implementation apply the requirements of this document.
+2. The implementations following this specification are able to read, interpret and modify AOSL documents in an inter-operable way, which means that AOSL data read, interpreted and modified by one implementation can be read, interpreted and modified by another as long as both implementation apply the requirements of this document. Such implementations are called confirming implementations.
 Therefore, the first requirement is to implement this specification.
 
 === 1.2. Status of This Document
@@ -44,14 +42,83 @@ This is a working draft of the specification.
 
 2. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
 
-3. The AOSL format specifies requirement applied on data organized following the DOM structure. AOSL data must be organized following DOM and must additionally follow the AOSL-specific requirements.
+3. The AOSL format specifies requirement applied on data organized following the DOM structure. AOSL data must be organized following the DOM structure and must follow the AOSL-specific requirements to be conformant.
 
 4. This specification expose data using XML schemes in examples. AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. XML helps clarify what is the type of which element of the DOM structure, which help documentation.
+In the examples of this document using XML, we will assume (if not specified) that the XML code is extracted from a fictive document, which have the following root element definition (englobing the example code):
+
+[source,xml]
+----
+<?xml version="1.0" encoding="utf-8" ?>
+
+<sequence xmlns="artofsequence.org/aosl/1.0" ... " >
+
+    <!-- Example Here -->
+
+</sequence>
+----
+
+As specified in this XML sample, the XML namespace used is implicitely the AOSL XML namespace. This imply that all tags specific to AOSL are not prefixed in the examples.
 
 5. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 It can be used by tools to check the validity of AOSL data as XML.
+In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted from this XSD document, which have the following root element definition (englobing the example code):
 
-=== 1.4. 
+[source,xml]
+----
+<xs:schema xmlns:aos="artofsequence.org/aosl/1.0"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             attributeFormDefault="unqualified"
+             elementFormDefault="qualified"
+             targetNamespace="artofsequence.org/aosl/1.0"
+             version="1.0"
+             >
+      
+      <!-- Example Here -->
 
+</xs:schema>
+----
+
+As specified in this XSD sample, *aos* is the XML namespace is used for xml tags specific AOSL.
+
+
+=== 1.4. Definitions
+
+1. type
+2. element
+3. double
+4. 
+
+=== 1.5. Basic Types
+
+==== 1.5.1. unit_space
+
+1. unit_space is the type representing values in spatial units.
+2. unit_space must have at least the same behaviour than the double type.
+3. Spatial units must be implemented relative to the definition of the *canvas*.
+
+3. XSD example:
+
+[source,xml]
+----
+    <xs:simpleType name="unit_space" >
+        <xs:restriction base="xs:double" />
+    </xs:simpleType>
+----
+
+==== 1.5.2. unit_time
+
+1. unit_time is the type representing values in time units.
+2. unit_time must have at least the same behaviour than the double type.
+3. Time units must be implemented as seconds.
+
+3. XSD example:
+
+[source,xml]
+----
+    <xs:simpleType name="unit_time" >
+        <xs:restriction base="xs:double" />
+    </xs:simpleType>
+----
 
 
 
