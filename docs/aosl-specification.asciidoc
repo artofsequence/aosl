@@ -1,15 +1,67 @@
-AOSL Standard 
-=============
+AOSL Specification 
+==================
 A. Joël Lamotte <klaim@artofsequence.org>
 v1.0
 :toc:
 
+= AOSL Specification
 
-Abstract
---------
 
-This document is the official specification of the AOSL format.
-This version specify AOSL 1.0 format.
+== 1. General
+
+
+=== 1.1.Scope
+
+1. This document specifies the Art Of Sequence Language (AOSL) format. 
+This is the specification for version 1.0 of AOSL.
+
+2. AOSL is a universal format for representing narratives implemented using digital plateforms. It's purpose is to be a bridge between tools (for authors, publishers and developers), interpreters (also called "players") in a variety of 
+
+2. The implementations using this specification are able to read, interpret and modify AOSL documents in an inter-operable way, which means that document read, interpreted
+and modified by one implementation can be read, interpreted and modified by another
+as long as both implementation apply the requirements of this document.
+Therefore, the first requirement is to implement this specification.
+
+=== 1.2. Status of This Document
+
+This is a working draft of the specification.
+
+=== 1.3. Dependencies
+
+1. The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.:
+
+ - *DOM 4* specification : *"W3C DOM 4"* http://www.w3.org/TR/dom/
+ - *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986
+ - Keywords ("must", "shall") specification: *RFC 2119 - "Key words for use in RFCs to Indicate Requirement Levels"* - http://www.ietf.org/rfc/rfc2119.txt
+
+2. The following referenced documents are indispensable for the understanding of the examples of this document:
+
+ - *XML* specification : "Extensible Markup Language (XML) 1.0 (Fifth Edition)" - http://www.w3.org/TR/2008/REC-xml-20081126/
+ - *XSD* specification: 
+    - "XML Schema Part 1: Structures Second Edition" - http://www.w3.org/TR/xmlschema-1/
+    - "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
+    - "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
+
+2. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+
+3. The AOSL format specifies requirement applied on data organized following the DOM structure. AOSL data must be organized following DOM and must additionally follow the AOSL-specific requirements.
+
+4. This specification expose data using XML schemes in examples. AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. XML helps clarify what is the type of which element of the DOM structure, which help documentation.
+
+5. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 It can be used by tools to check the validity of AOSL data as XML.
+
+=== 1.4. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
