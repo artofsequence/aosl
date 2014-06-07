@@ -82,16 +82,34 @@ As specified in this XSD sample, *aos* is the XML namespace is used for xml tags
 
 === Definitions
 
-type::
-    Explain what is a type here?
+element-type::
+    Defines the constraints and functions that a data type provide.
++
+[WARNING]
+====
+Add an XML/XSD example here.
+====
 
 element::
-    Explain what is an element here?
+    An instance of an element-type in the dom structure.
++
+[WARNING]
+====
+Add an XML example here.
+====
+    
+decimal-type::
+    A native decimal type.
++
+[NOTE]
+====
+In XSD, a +decimal-type+ type could be implemented as a +xs:double+ or +xsd:decimal+ type.
+In $$C++$$, a +decimal-type+ could be implemented as a $$C++$$'s +double+ or +float+ type.
+====
 
 interpreter::
     The interpreter is the implementation that will read the AOSL data and apply it's semantic.
-
-
++
 [NOTE]
 ====
 Examples of interpreters implementation: 
@@ -108,8 +126,8 @@ Examples of interpreters implementation:
 ==== unit_space
 
 . unit_space is the type representing values in spatial units.
-. unit_space must have at least the same behaviour than the double type.
-. Spatial units must be implemented relative to the definition of the *canvas*.
+. unit_space must be implemented as a +decimal-type+.
+. unit_space value must be interpreted as a distance from a relative value on an axis defined in space.
 
 [NOTE]
 ====
@@ -125,8 +143,8 @@ Possible XSD representation:
 ==== unit_time
 
 . unit_time is the type representing values in time units.
-. unit_time must have at least the same behaviour than the double type.
-. Time units must be implemented as seconds.
+. unit_time must be implemented as a decimal-type.
+. unit_time value must be interpreted as seconds.
 
 [NOTE]
 ====
@@ -138,8 +156,6 @@ Possible XSD representation:
 </xs:simpleType>
 ----
 ====
-
-
 
 
 
