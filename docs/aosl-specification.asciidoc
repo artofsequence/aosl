@@ -1,52 +1,51 @@
 AOSL Specification 
 ==================
 A. Joël Lamotte <klaim@artofsequence.org>
-v1.0
+v1.0-draft
+:doctype: book
 :toc:
+:numbered:
 
-= AOSL Specification
-
-
-== 1. General
+== General
 
 
-=== 1.1.Scope
+=== Scope
 
-1. This document specifies the Art Of Sequence Language (AOSL) format. 
+. This document specifies the Art Of Sequence Language (AOSL) format. 
 This is the specification for version 1.0 of AOSL.
 
-2. AOSL is a universal format for representing narratives implemented using digital plateforms. It's purpose is to be a bridge between tools (for authors, publishers and developers), interpreters (also called "players") in a variety of 
+. AOSL is a universal format for representing narratives implemented using digital plateforms. It's purpose is to be a bridge between tools (for authors, publishers and developers), interpreters (also called "players") in a variety of 
 
-2. The implementations following this specification are able to read, interpret and modify AOSL documents in an inter-operable way, which means that AOSL data read, interpreted and modified by one implementation can be read, interpreted and modified by another as long as both implementation apply the requirements of this document. Such implementations are called confirming implementations.
+. The implementations following this specification are able to read, interpret and modify AOSL documents in an inter-operable way, which means that AOSL data read, interpreted and modified by one implementation can be read, interpreted and modified by another as long as both implementation apply the requirements of this document. Such implementations are called confirming implementations.
 Therefore, the first requirement is to implement this specification.
 
-=== 1.2. Status of This Document
+=== Status of This Document
 
 This is a working draft of the specification.
 
-=== 1.3. Dependencies
+=== Dependencies
 
-1. The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.:
+. The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.:
 
- - *DOM 4* specification : *"W3C DOM 4"* http://www.w3.org/TR/dom/
- - *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986
- - Keywords ("must", "shall") specification: *RFC 2119 - "Key words for use in RFCs to Indicate Requirement Levels"* - http://www.ietf.org/rfc/rfc2119.txt
+    - *DOM 4* specification : *"W3C DOM 4"* http://www.w3.org/TR/dom/
+    - *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986
+    - Keywords ("must", "shall") specification: *RFC 2119 - "Key words for use in RFCs to Indicate Requirement Levels"* - http://www.ietf.org/rfc/rfc2119.txt
 
-2. The following referenced documents are indispensable for the understanding of the examples of this document:
+. The following referenced documents are indispensable for the understanding of the examples of this document:
 
- - *XML* specification : "Extensible Markup Language (XML) 1.0 (Fifth Edition)" - http://www.w3.org/TR/2008/REC-xml-20081126/
- - *XSD* specification: 
-    - "XML Schema Part 1: Structures Second Edition" - http://www.w3.org/TR/xmlschema-1/
-    - "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
-    - "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
+    - *XML* specification : "Extensible Markup Language (XML) 1.0 (Fifth Edition)" - http://www.w3.org/TR/2008/REC-xml-20081126/
+    - *XSD* specification: 
+        - "XML Schema Part 1: Structures Second Edition" - http://www.w3.org/TR/xmlschema-1/
+        - "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
+        - "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
 
-2. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
 
-3. The AOSL format specifies requirement applied on data organized following the DOM structure. AOSL data must be organized following the DOM structure and must follow the AOSL-specific requirements to be conformant.
+. The AOSL format specifies requirement applied on data organized following the DOM structure. AOSL data must be organized following the DOM structure and must follow the AOSL-specific requirements to be conformant.
 
-4. This specification expose data using XML schemes in examples. AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. XML helps clarify what is the type of which element of the DOM structure, which help documentation.
+. This specification expose data using XML schemes in examples. AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. XML helps clarify what is the type of which element of the DOM structure, which help documentation.
 In the examples of this document using XML, we will assume (if not specified) that the XML code is extracted from a fictive document, which have the following root element definition (englobing the example code):
-
++
 [source,xml]
 ----
 <?xml version="1.0" encoding="utf-8" ?>
@@ -57,68 +56,88 @@ In the examples of this document using XML, we will assume (if not specified) th
 
 </sequence>
 ----
-
++
 As specified in this XML sample, the XML namespace used is implicitely the AOSL XML namespace. This imply that all tags specific to AOSL are not prefixed in the examples.
-
-5. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 It can be used by tools to check the validity of AOSL data as XML.
+    
+. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 It can be used by tools to check the validity of AOSL data as XML.
 In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted from this XSD document, which have the following root element definition (englobing the example code):
-
++
 [source,xml]
 ----
 <xs:schema xmlns:aos="artofsequence.org/aosl/1.0"
-             xmlns:xs="http://www.w3.org/2001/XMLSchema"
-             attributeFormDefault="unqualified"
-             elementFormDefault="qualified"
-             targetNamespace="artofsequence.org/aosl/1.0"
-             version="1.0"
-             >
-      
-      <!-- Example Here -->
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="artofsequence.org/aosl/1.0"
+            version="1.0"
+            >
+    
+    <!-- Example Here -->
 
 </xs:schema>
 ----
-
++
 As specified in this XSD sample, *aos* is the XML namespace is used for xml tags specific AOSL.
 
 
-=== 1.4. Definitions
+=== Definitions
 
-1. type
-2. element
-3. double
-4. 
+type::
+    Explain what is a type here?
 
-=== 1.5. Basic Types
+element::
+    Explain what is an element here?
 
-==== 1.5.1. unit_space
+interpreter::
+    The interpreter is the implementation that will read the AOSL data and apply it's semantic.
 
-1. unit_space is the type representing values in spatial units.
-2. unit_space must have at least the same behaviour than the double type.
-3. Spatial units must be implemented relative to the definition of the *canvas*.
 
-3. XSD example:
+[NOTE]
+====
+Examples of interpreters implementation: 
 
+    - an exporter converting AOSL data to another specific format;
+    - a player embedded in a web page to interpret on-the-fly AOSL data and display the result to the reader;
+    - a library interpreting the semantic of AOSL data and providing a description of the 
+        interpreted state of the reading to the user code (for example to allow a preview in an editor,
+        or as part of an implementation of player application).
+====
+
+=== Basic Types
+
+==== unit_space
+
+. unit_space is the type representing values in spatial units.
+. unit_space must have at least the same behaviour than the double type.
+. Spatial units must be implemented relative to the definition of the *canvas*.
+
+[NOTE]
+====
+Possible XSD representation:
 [source,xml]
 ----
-    <xs:simpleType name="unit_space" >
-        <xs:restriction base="xs:double" />
-    </xs:simpleType>
+<xs:simpleType name="unit_space" >
+    <xs:restriction base="xs:double" />
+</xs:simpleType>
 ----
+====
 
-==== 1.5.2. unit_time
+==== unit_time
 
-1. unit_time is the type representing values in time units.
-2. unit_time must have at least the same behaviour than the double type.
-3. Time units must be implemented as seconds.
+. unit_time is the type representing values in time units.
+. unit_time must have at least the same behaviour than the double type.
+. Time units must be implemented as seconds.
 
-3. XSD example:
-
+[NOTE]
+====
+Possible XSD representation:
 [source,xml]
 ----
-    <xs:simpleType name="unit_time" >
-        <xs:restriction base="xs:double" />
-    </xs:simpleType>
+<xs:simpleType name="unit_time" >
+    <xs:restriction base="xs:double" />
+</xs:simpleType>
 ----
+====
 
 
 
