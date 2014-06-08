@@ -97,6 +97,14 @@ element::
 ====
 Add an XML example here.
 ====
+
+attribute::
+    Component of a type, as specified by the DOM.
++
+[WARNING]
+====
+Add an XML/XSD example here.
+====
     
 decimal-type::
     A native decimal type.
@@ -126,7 +134,7 @@ Examples of interpreters implementation:
 ==== unit_space
 
 . +unit_space+ is a type containing values in spatial units.
-. +unit_space+ must be implemented as a  +decimal-type+.
+. +unit_space+ must be implemented as a  decimal-type.
 . +unit_space+ value must be interpreted as a distance from a relative value on an axis defined in a vectorial space.
 
 [NOTE]
@@ -175,6 +183,7 @@ Possible XSD representation:
 </xs:simpleType>
 ----
 ====
+
 
 ==== angle
 
