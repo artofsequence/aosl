@@ -158,9 +158,23 @@ Possible XSD representation:
 ====
 
 
+==== value_percent
 
+. +value_percent+ is a type representing a ratio.
+. +value_percent+ value must be specified using a number between 0 and 100 followed by a +%+ character.
 
-
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+<xs:simpleType name="value_percent" >
+    <xs:restriction base="xs:string">
+        <xs:pattern value="\d(.\d*)*%" />
+    </xs:restriction>
+</xs:simpleType>
+----
+====
 
 
 
