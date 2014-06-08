@@ -176,6 +176,29 @@ Possible XSD representation:
 ----
 ====
 
+==== angle
+
+. +angle+ is a type representing a geometric angle.
+. +angle+ must be implemented as a decimal-type.
+. +angle+ value must be interpreted in Radian.
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+<xs:simpleType name="angle" >
+    <xs:restriction base="xs:double" />
+</xs:simpleType>
+----
+====
+
+
+
+
+
+
+
 
 
 
