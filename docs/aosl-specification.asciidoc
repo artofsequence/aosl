@@ -82,8 +82,8 @@ As specified in this XSD sample, *aos* is the XML namespace is used for xml tags
 
 === Definitions
 
-element-type::
-    Defines the constraints and functions that a data type provide.
+type::
+    Specifiy the constraints and usage of data.
 +
 [WARNING]
 ====
@@ -91,7 +91,7 @@ Add an XML/XSD example here.
 ====
 
 element::
-    An instance of an element-type in the dom structure.
+    An instance of an type in the DOM structure.
 +
 [WARNING]
 ====
@@ -103,8 +103,8 @@ decimal-type::
 +
 [NOTE]
 ====
-In XSD, a +decimal-type+ type could be implemented as a +xs:double+ or +xsd:decimal+ type.
-In $$C++$$, a +decimal-type+ could be implemented as a $$C++$$'s +double+ or +float+ type.
+In XSD, a decimal-type type could be implemented as a +xs:double+ or +xsd:decimal+ type.
+In $$C++$$, a decimal-type could be implemented as a $$C++$$'s +double+ or +float+ type.
 ====
 
 interpreter::
@@ -125,9 +125,9 @@ Examples of interpreters implementation:
 
 ==== unit_space
 
-. unit_space is the type representing values in spatial units.
-. unit_space must be implemented as a +decimal-type+.
-. unit_space value must be interpreted as a distance from a relative value on an axis defined in space.
+. +unit_space+ is a type containing values in spatial units.
+. +unit_space+ must be implemented as a  +decimal-type+.
+. +unit_space+ value must be interpreted as a distance from a relative value on an axis defined in a vectorial space.
 
 [NOTE]
 ====
@@ -142,9 +142,9 @@ Possible XSD representation:
 
 ==== unit_time
 
-. unit_time is the type representing values in time units.
-. unit_time must be implemented as a decimal-type.
-. unit_time value must be interpreted as seconds.
+. +unit_time+ is a type representing values in time units.
+. +unit_time+ must be implemented as a decimal-type.
+. +unit_time+ value must be interpreted as standard seconds.
 
 [NOTE]
 ====
