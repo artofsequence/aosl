@@ -41,7 +41,7 @@ This is a working draft of the specification.
 
 . The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
 
-. The AOSL format specifies requirement applied on data organized following the DOM structure. AOSL data must be organized following the DOM structure and must follow the AOSL-specific requirements to be conformant.
+. The AOSL format specifies requirement applied on data organized following the DOM Node Tree structure. AOSL data must be organized following the DOM Node Tree structure and must additionally follow the AOSL-specific requirements to be conformant.
 
 . This specification expose data using XML schemes in examples. AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. XML helps clarify what is the type of which element of the DOM structure, which help documentation.
 In the examples of this document using XML, we will assume (if not specified) that the XML code is extracted from a fictive document, which have the following root element definition (englobing the example code):
