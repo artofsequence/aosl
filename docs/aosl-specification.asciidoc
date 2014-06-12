@@ -91,7 +91,9 @@ Add an XML/XSD example here.
 ====
 
 element::
-    An instance of an type in the DOM structure.
+    An instance of an type, implemented as a node in the DOM Node Tree.
+    The constraints of the type are applied to the data stored by the element.
+    An element can contain other elements if the constraints described by the type allows it.
 +
 [WARNING]
 ====
@@ -99,7 +101,7 @@ Add an XML example here.
 ====
 
 attribute::
-    Component of a type, as specified by the DOM.
+    Key-value property of an element with a semantic is defined by the type.
 +
 [WARNING]
 ====
@@ -208,6 +210,8 @@ Possible XSD representation:
 ==== vector
 
 . +vector+ is a type representing a geometric 3D vector.
++
+NOTE: +vector+ is typically used to represent either a position in space (relative to the origin), or a translation or a direction.
 
 . +vector+ must expose the following attributes:
 +
@@ -236,6 +240,8 @@ Possible XSD representation:
 ==== rotation
 
 . +rotation+ is a type representing a geometric 3D rotation around an unspecified center.
++
+NOTE: +rotation+ is typically used to represent either an orientation in space, or a rotation.
 
 . +rotation+ must expose the following attributes:
 +
@@ -274,7 +280,6 @@ Possible XSD representation:
 | +rotation+          | +vector+        | Once or none.     | Represents a rotation applied to the subject of the +transformation+, relative to the +origin+ point. |
 | +origin+              | +vector+    | Once or none.     | Represents an homotetie applied to the subject of the +transformation+. |
 |===
-
 
 [NOTE]
 ====
