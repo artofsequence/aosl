@@ -1,1 +1,1 @@
-﻿Put here resource files used by AOSL tests.
+Put here resource files used by AOSL tests.
