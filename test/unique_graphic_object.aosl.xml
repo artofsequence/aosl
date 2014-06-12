@@ -2,44 +2,44 @@
 
 <!--
 
-		AOSL Test : Unique Graphic Object
-		=================================
+        AOSL Test : Unique Graphic Object
+        =================================
 
-		A simple sequence with only one graphic object in a unique node.
+        A simple sequence with only one graphic object in a unique node.
 
 -->
 
 <sequence xmlns="artofsequence.org/aosl/2.0" name="Test : Unique Graphic Object" id="test-unique-graphic-object" >
 
-	<library>
+    <library>
 
-		<resource id="image_character" type="image" >./resources/character.png</resource>
+        <resource id="image_character" type="image" >./resources/character.png</resource>
 
-	</library>
+    </library>
 
-	<canvas>
-		<area x="800" y="600" z="0" />
+    <canvas>
+        <area x="800" y="600" z="0" />
 
-		<objects>
-			<sprite id="a_character" resource="image_character" active="true">
-				<graphic></graphic>
-			</sprite>
-		</objects>
-	</canvas>
+        <objects>
+            <sprite id="a_character" resource="image_character" active="true">
+                <graphic></graphic>
+            </sprite>
+        </objects>
+    </canvas>
 
-	<storygraph begin="stage_0" >
+    <storygraph begin="stage_0" >
 
-		<navigation>
+        <navigation>
 
-		</navigation>
+        </navigation>
 
-		<transitions>
-		</transitions>
+        <transitions>
+        </transitions>
 
-		<nodes>
-			<node id="stage_0" />
-		</nodes>
+        <nodes>
+            <node id="stage_0" />
+        </nodes>
 
-	</storygraph>
+    </storygraph>
 
 </sequence>
