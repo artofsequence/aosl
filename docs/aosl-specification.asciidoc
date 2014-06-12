@@ -212,12 +212,13 @@ Possible XSD representation:
 . +vector+ must expose the following attributes:
 +
 |===
-| name | type | default value | semantic |
+| *Attribute Name* | *Type* | *Default value* | *Semantic* |
 | +x+ | +unit_space+ | 0.0 | Represents a distance on the X axis in 3D vectorial space. |
 | +y+ | +unit_space+ | 0.0 | Represents a distance on the Y axis in 3D vectorial space. |
 | +z+ | +unit_space+ | 0.0 | Represents a distance on the Z axis in 3D vectorial space. |
 |===
-+
+
+
 [NOTE]
 ====
 Possible XSD representation:
@@ -239,12 +240,12 @@ Possible XSD representation:
 . +rotation+ must expose the following attributes:
 +
 |===
-| name | type | default value | semantic |
+| *Attribute Name* | *Type* | *Default value* | *Semantic* |
 | +yaw+   | +angle+ | 0.0 | Represents a rotation around the X axis in a 3D vectorial space. |
 | +pitch+  | +angle+ | 0.0 | Represents a rotation around the Y axis in a 3D vectorial space. |
 | +roll+     | +angle+ | 0.0 | Represents a rotation around the Z axis in a 3D vectorial space. |
 |===
-+
+
 [NOTE]
 ====
 Possible XSD representation:
