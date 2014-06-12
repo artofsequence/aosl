@@ -232,10 +232,31 @@ Possible XSD representation:
 ----
 ====
 
+==== rotation
 
+. +rotation+ is a type representing a geometric 3D rotation around an unspecified center.
 
+. +rotation+ must expose the following attributes:
++
+|===
+| name | type | default value | semantic |
+| +yaw+   | +angle+ | 0.0 | Represents a rotation around the X axis in a 3D vectorial space. |
+| +pitch+  | +angle+ | 0.0 | Represents a rotation around the Y axis in a 3D vectorial space. |
+| +roll+     | +angle+ | 0.0 | Represents a rotation around the Z axis in a 3D vectorial space. |
+|===
++
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+<xs:complexType name="rotation" >    
+    <xs:attribute name="yaw"  type="aos:angle" default="0.0" />
+    <xs:attribute name="pitch" type="aos:angle" default="0.0" />
+    <xs:attribute name="roll"    type="aos:angle" default="0.0" />
+</xs:complexType>
 
-
-
+----
+====
 
 
