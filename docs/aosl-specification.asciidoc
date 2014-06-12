@@ -261,3 +261,38 @@ Possible XSD representation:
 ====
 
 
+==== transformation
+
+. +transformation+ is a type representing a geometric 3D transformation that can be applied to an object in space.
+
+. +transformation+ is composed of the following elements which can appear in any order:
++
+|===
+| *Element Name*  | *Type*          | *Occurence*      | *Semantic*     |
+| +translation+       | +vector+        | Once or none.     | Represents a translation applied to the subject of the +transformation+. |
+| +scale+              | +vector+        | Once or none.     | Represents an homotetie applied to the subject of the +transformation+. |
+| +rotation+          | +vector+        | Once or none.     | Represents a rotation applied to the subject of the +transformation+, relative to the +origin+ point. |
+| +origin+              | +vector+    | Once or none.     | Represents an homotetie applied to the subject of the +transformation+. |
+|===
+
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+
+<xs:complexType name="transformation">
+    <xs:all>
+        <xs:element name="translation" type="aos:vector" minOccurs="0" maxOccurs="1" />
+        <xs:element name="scale" type="aos:vector"  minOccurs="0" maxOccurs="1" />
+        <xs:element name="rotation" type="aos:rotation"  minOccurs="0" maxOccurs="1" />
+        <xs:element name="origin" type="aos:vector" minOccurs="0" maxOccurs="1" />
+    </xs:all>
+</xs:complexType>
+
+----
+====
+
+
+
