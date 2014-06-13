@@ -300,4 +300,40 @@ Possible XSD representation:
 ====
 
 
+==== box
+
+. +box+ is a type representing a geometric 3D box in space.
+
+. +box+ is composed of the following elements which can appear in any order:
++
+|===
+| *Element Name*  | *Type*          | *Occurence*      | *Semantic*     
+| +size+       | +vector+        | Once or none.    |
+    Size of the box.
+    Each one of the axes value gives the length of the corresponding edges of the box.
+    If not provided, the default size should be determined by the implementation.
+    In this case, if it is the ouput or input box of a graphic object, the default value is 100% of the resource size.  
+| +transformation+              | +transformation+        | Once or none.  |
+    Transformation defining the position, 
+    orientation and scale factor of this box, 
+    relative to the parent object or the canvas origin if no parent.  
+|===
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+
+<xs:complexType name="box">
+    <xs:all>
+        <xs:element name="size" type="aos:vector" minOccurs="0" />
+        <xs:element name="transformation" type="aos:transformation" minOccurs="0" />
+    </xs:all>
+</xs:complexType>
+
+----
+====
+
+
 
