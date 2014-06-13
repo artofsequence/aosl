@@ -336,4 +336,37 @@ Possible XSD representation:
 ====
 
 
+==== spatial_area
+
+. +spatial_area+ is a type representing a 3D area.
++
+WARNING: Needs a lot of clarifications...maybe just remove that type?
+
+. +spatial_area+ must be implemented as a +vector+ and must expose +vector+'s interface.
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+
+<xs:complexType name="spatial_area">
+    <xs:complexContent>
+        <xs:extension base="aos:vector" />
+    </xs:complexContent>
+</xs:complexType>
+
+----
+====
+
+
+
+
+
+
+
+
+
+
+
 
