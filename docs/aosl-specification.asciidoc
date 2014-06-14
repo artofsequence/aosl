@@ -14,9 +14,15 @@ v1.0-draft
 . This document specifies the Art Of Sequence Language (AOSL) format. 
 This is the specification for version 1.0 of AOSL.
 
-. AOSL is a universal format for representing narratives implemented using digital plateforms. It's purpose is to be a bridge between tools (for authors, publishers and developers), interpreters (also called "players") in a variety of 
+. AOSL is a universal format for representing narratives implemented using digital plateforms. 
+It's purpose is to be a bridge between tools (for authors, publishers and developers), 
+interpreters (also called "players") in a variety of 
 
-. The implementations following this specification are able to read, interpret and modify AOSL documents in an inter-operable way, which means that AOSL data read, interpreted and modified by one implementation can be read, interpreted and modified by another as long as both implementation apply the requirements of this document. Such implementations are called confirming implementations.
+. The implementations following this specification are able to read, 
+interpret and modify AOSL documents in an inter-operable way, 
+which means that AOSL data read, interpreted and modified by one implementation can be read, 
+interpreted and modified by another as long as both implementation apply the requirements of this document. 
+Such implementations are called confirming implementations.
 Therefore, the first requirement is to implement this specification.
 
 === Status of This Document
@@ -25,7 +31,9 @@ This is a working draft of the specification.
 
 === Dependencies
 
-. The following referenced documents are indispensable for the application of this document. For dated references, only the edition cited applies. For undated references, the latest edition of the referenced document (including any amendments) applies.:
+. The following referenced documents are indispensable for the application of this document. 
+For dated references, only the edition cited applies. For undated references, 
+the latest edition of the referenced document (including any amendments) applies.:
 
     - *DOM 4* specification : *"W3C DOM 4"* http://www.w3.org/TR/dom/
     - *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986
@@ -39,12 +47,18 @@ This is a working draft of the specification.
         - "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
         - "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
 
-. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", 
+"MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
 
-. The AOSL format specifies requirement applied on data organized following the DOM Node Tree structure. AOSL data must be organized following the DOM Node Tree structure and must additionally follow the AOSL-specific requirements to be conformant.
+. The AOSL format specifies requirement applied on data organized following the DOM Node Tree structure. 
+AOSL data must be organized following the DOM Node Tree structure and must additionally follow 
+the AOSL-specific requirements to be conformant.
 
-. This specification expose data using XML schemes in examples. AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. XML helps clarify what is the type of which element of the DOM structure, which help documentation.
-In the examples of this document using XML, we will assume (if not specified) that the XML code is extracted from a fictive document, which have the following root element definition (englobing the example code):
+. This specification expose data using XML schemes in examples. 
+AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. 
+XML helps clarify what is the type of which element of the DOM structure, which help documentation.
+In the examples of this document using XML, we will assume (if not specified) that the XML code is extracted 
+from a fictive document, which have the following root element definition (englobing the example code):
 +
 [source,xml]
 ----
@@ -57,10 +71,13 @@ In the examples of this document using XML, we will assume (if not specified) th
 </sequence>
 ----
 +
-As specified in this XML sample, the XML namespace used is implicitely the AOSL XML namespace. This imply that all tags specific to AOSL are not prefixed in the examples.
+As specified in this XML sample, the XML namespace used is implicitely the AOSL XML namespace. 
+This imply that all tags specific to AOSL are not prefixed in the examples.
     
-. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 It can be used by tools to check the validity of AOSL data as XML.
-In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted from this XSD document, which have the following root element definition (englobing the example code):
+. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 
+It can be used by tools to check the validity of AOSL data as XML.
+In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted 
+from this XSD document, which have the following root element definition (englobing the example code):
 +
 [source,xml]
 ----
@@ -289,10 +306,10 @@ Possible XSD representation:
 
 <xs:complexType name="transformation">
     <xs:all>
-        <xs:element name="translation" type="aos:vector" minOccurs="0" maxOccurs="1" />
-        <xs:element name="scale" type="aos:vector"  minOccurs="0" maxOccurs="1" />
-        <xs:element name="rotation" type="aos:rotation"  minOccurs="0" maxOccurs="1" />
-        <xs:element name="origin" type="aos:vector" minOccurs="0" maxOccurs="1" />
+        <xs:element name="translation" type="aos:vector"    minOccurs="0"  maxOccurs="1" />
+        <xs:element name="scale"        type="aos:vector"     minOccurs="0" maxOccurs="1" />
+        <xs:element name="rotation"     type="aos:rotation"  minOccurs="0"  maxOccurs="1" />
+        <xs:element name="origin"        type="aos:vector"     minOccurs="0" maxOccurs="1" />
     </xs:all>
 </xs:complexType>
 
