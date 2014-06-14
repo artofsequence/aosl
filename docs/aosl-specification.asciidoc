@@ -389,12 +389,35 @@ Possible XSD representation:
 ====
 
 
+==== source_uri
 
+. +source_uri+ is a type representing the URI of a resource.
+. +source_uri+ must be implemented as a string-type with the following additional constraints:
+    - the string-type value must be conformant with the URI scheme specification (see [RFC-3986]).
 
+[NOTE]
+====
+As specified in [RFC-3986] (see [dependencies]), an URI can be a local filesystem file address, 
+an online URL or something else. It is volontarily unspecified here how it must be interpreted.
+As with almost all the values represented in AOSL, the interpreter implementation will define 
+(and provide to tools for preventive checking) it's own additional constraints. 
+For example, XAOSL adds that the URI must be relative to some files internal to the 
+XAOSL container file system. An interpreter in a web page might add a constraint forcing
+all URIs to be URLs and use them as such to retrieve resources.
+====
+    
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
 
+	<xs:simpleType name="source_uri">
+		<xs:restriction base="xs:anyURI" />
+	</xs:simpleType>
 
-
-
+----
+====
 
 
 
