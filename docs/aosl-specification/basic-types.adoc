@@ -234,11 +234,11 @@ Possible XSD representation:
 
 . +source_uri+ is a type representing the URI identifying a resource.
 . +source_uri+ must be implemented as a string-type with the following additional constraints:
-    - the text value must be conformant with the URI scheme specification (see [RFC-3986]).
-
+    - the text value must be conformant with the URI scheme specification (see <<rfc-uri,RFC-3986>>).
++
 [NOTE]
 ====
-As specified in [RFC-3986] (see [dependencies]), an URI can be a local filesystem file address, 
+As specified in <<rfc-uri,RFC-3986>> (see <<section_required_references>>), an URI can be a local filesystem file address, 
 an online URL or something else. It is volontarily unspecified here how it must be interpreted.
 As with almost all the values represented in AOSL, the interpreter implementation will define 
 (and provide to tools for preventive checking) it's own additional constraints. 
@@ -267,7 +267,7 @@ Possible XSD representation:
 . +extension+'s attributes and child elements are unspecified: it can contain any attributes and any elements.
 . An interpreter is allowed to read and interpret the data in an +extension+ element if it can.
 . An interpreter unable to read or interpret the data in an +extension+ element must ignore these data.
-
++
 [NOTE]
 ====
 +extension+ allows specifics interpreters implementations to provide additional functionalities which will 
