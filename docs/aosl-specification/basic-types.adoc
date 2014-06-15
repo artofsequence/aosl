@@ -1,168 +1,9 @@
-AOSL Specification 
-==================
-A. Joël Lamotte <klaim@artofsequence.org>
-v1.0-draft
-:doctype: book
-:toc:
-:numbered:
-
-== General
 
 
-=== Scope
 
-. This document specifies the Art Of Sequence Language (AOSL) format. 
-This is the specification for version 1.0 of AOSL.
+== Basic Types
 
-. AOSL is a universal format for representing narratives implemented using digital plateforms. 
-It's purpose is to be a bridge between tools (for authors, publishers and developers), 
-interpreters (also called "players") in a variety of 
-
-. The implementations following this specification are able to read, 
-interpret and modify AOSL documents in an inter-operable way, 
-which means that AOSL data read, interpreted and modified by one implementation can be read, 
-interpreted and modified by another as long as both implementation apply the requirements of this document. 
-Such implementations are called confirming implementations.
-Therefore, the first requirement is to implement this specification.
-
-=== Status of This Document
-
-This is a working draft of the specification.
-
-=== Dependencies
-
-. The following referenced documents are indispensable for the application of this document. 
-For dated references, only the edition cited applies. For undated references, 
-the latest edition of the referenced document (including any amendments) applies.:
-
-    - *DOM 4* specification : *"W3C DOM 4"* http://www.w3.org/TR/dom/
-    - *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986
-    - Keywords ("must", "shall") specification: *RFC 2119 - "Key words for use in RFCs to Indicate Requirement Levels"* - http://www.ietf.org/rfc/rfc2119.txt
-
-. The following referenced documents are indispensable for the understanding of the examples of this document:
-
-    - *XML* specification : "Extensible Markup Language (XML) 1.0 (Fifth Edition)" - http://www.w3.org/TR/2008/REC-xml-20081126/
-    - *XSD* specification: 
-        - "XML Schema Part 1: Structures Second Edition" - http://www.w3.org/TR/xmlschema-1/
-        - "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
-        - "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
-
-. The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", 
-"MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
-
-. The AOSL format specifies requirement applied on data organized following the DOM Node Tree structure. 
-AOSL data must be organized following the DOM Node Tree structure and must additionally follow 
-the AOSL-specific requirements to be conformant.
-
-. This specification expose data using XML schemes in examples. 
-AOSL can be encoded within other data formats like JSON, YAML or BSON, but in this document we will exclusively use XML. 
-XML helps clarify what is the type of which element of the DOM structure, which help documentation.
-In the examples of this document using XML, we will assume (if not specified) that the XML code is extracted 
-from a fictive document, which have the following root element definition (englobing the example code):
-+
-[source,xml]
-----
-<?xml version="1.0" encoding="utf-8" ?>
-
-<sequence xmlns="artofsequence.org/aosl/1.0" ... " >
-
-    <!-- Example Here -->
-
-</sequence>
-----
-+
-As specified in this XML sample, the XML namespace used is implicitely the AOSL XML namespace. 
-This imply that all tags specific to AOSL are not prefixed in the examples.
-    
-. An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 
-It can be used by tools to check the validity of AOSL data as XML.
-In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted 
-from this XSD document, which have the following root element definition (englobing the example code):
-+
-[source,xml]
-----
-<xs:schema xmlns:aos="artofsequence.org/aosl/1.0"
-            xmlns:xs="http://www.w3.org/2001/XMLSchema"
-            attributeFormDefault="unqualified"
-            elementFormDefault="qualified"
-            targetNamespace="artofsequence.org/aosl/1.0"
-            version="1.0"
-            >
-    
-    <!-- Example Here -->
-
-</xs:schema>
-----
-+
-As specified in this XSD sample, *aos* is the XML namespace is used for xml tags specific AOSL.
-
-
-=== Definitions
-
-type::
-    Specifiy the constraints and usage of data.
-+
-[WARNING]
-====
-Add an XML/XSD example here.
-====
-
-element::
-    An instance of an type, implemented as a node in the DOM Node Tree.
-    The constraints of the type are applied to the data stored by the element.
-    An element can contain other elements if the constraints described by the type allows it.
-+
-[WARNING]
-====
-Add an XML example here.
-====
-
-attribute::
-    Key-value property of an element with a semantic is defined by the type.
-+
-[WARNING]
-====
-Add an XML/XSD example here.
-====
-    
-decimal-type::
-    A native decimal type.
-+
-[NOTE]
-====
-In XSD, a decimal-type type could be implemented as a +xs:double+ or +xsd:decimal+ type.
-In $$C++$$, a decimal-type could be implemented as a $$C++$$'s +double+ or +float+ type.
-====
-
-string-type::
-    A type which can contain textual values, with or without additional constraints.
-+
-[NOTE]
-====
-In XSD, a string-type type could be implemented as a +xs:string+ or +xsd:anyURI+ type 
- (in case we want to add URI scheme constraints to the textual value).
-In $$C++$$, a string-type could be implemented as a $$C++$$'s +std::string+ or +const char*+ type 
-or a wrapper type around a +std::string+ which would add necessary constraints.
-====
-    
-
-interpreter::
-    The interpreter is the implementation that will read the AOSL data and apply it's semantic.
-+
-[NOTE]
-====
-Examples of interpreters implementation: 
-
-    - an exporter converting AOSL data to another specific format;
-    - a player embedded in a web page to interpret on-the-fly AOSL data and display the result to the reader;
-    - a library interpreting the semantic of AOSL data and providing a description of the 
-        interpreted state of the reading to the user code (for example to allow a preview in an editor,
-        or as part of an implementation of player application).
-====
-
-=== Basic Types
-
-==== unit_space
+=== unit_space
 
 . +unit_space+ is a type containing values in spatial units.
 . +unit_space+ must be implemented as a  decimal-type.
@@ -179,7 +20,7 @@ Possible XSD representation:
 ----
 ====
 
-==== unit_time
+=== unit_time
 
 . +unit_time+ is a type representing values in time units.
 . +unit_time+ must be implemented as a decimal-type.
@@ -197,7 +38,7 @@ Possible XSD representation:
 ====
 
 
-==== value_percent
+=== value_percent
 
 . +value_percent+ is a type representing a ratio.
 . +value_percent+ value must be specified using a number between 0 and 100 followed by a +%+ character.
@@ -216,7 +57,7 @@ Possible XSD representation:
 ====
 
 
-==== angle
+=== angle
 
 . +angle+ is a type representing a geometric angle.
 . +angle+ must be implemented as a decimal-type.
@@ -236,7 +77,7 @@ Possible XSD representation:
 
 
 
-==== vector
+=== vector
 
 . +vector+ is a type representing a geometric 3D vector.
 +
@@ -266,7 +107,7 @@ Possible XSD representation:
 ----
 ====
 
-==== rotation
+=== rotation
 
 . +rotation+ is a type representing a geometric 3D rotation around an unspecified center.
 +
@@ -296,7 +137,7 @@ Possible XSD representation:
 ====
 
 
-==== transformation
+=== transformation
 
 . +transformation+ is a type representing a geometric 3D transformation that can be applied to an object in space.
 
@@ -329,7 +170,7 @@ Possible XSD representation:
 ====
 
 
-==== box
+=== box
 
 . +box+ is a type representing a geometric 3D box in space.
 
@@ -365,7 +206,7 @@ Possible XSD representation:
 ====
 
 
-==== spatial_area
+=== spatial_area
 
 . +spatial_area+ is a type representing a 3D area.
 +
@@ -389,7 +230,7 @@ Possible XSD representation:
 ====
 
 
-==== source_uri
+=== source_uri
 
 . +source_uri+ is a type representing the URI identifying a resource.
 . +source_uri+ must be implemented as a string-type with the following additional constraints:

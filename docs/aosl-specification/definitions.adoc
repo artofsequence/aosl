@@ -1,0 +1,70 @@
+
+== Definitions
+
+=== type
+
+Specifiy the constraints and usage of data.
+
+[WARNING]
+====
+Add an XML/XSD example here.
+====
+
+=== element
+
+An instance of an type, implemented as a node in the DOM Node Tree.
+The constraints of the type are applied to the data stored by the element.
+An element can contain other elements if the constraints described by the type allows it.
+
+[WARNING]
+====
+Add an XML example here.
+====
+
+=== attribute
+
+Key-value property of an element with a semantic is defined by the type.
+
+[WARNING]
+====
+Add an XML/XSD example here.
+====
+    
+=== decimal-type
+
+A native decimal type.
+
+[NOTE]
+====
+In XSD, a decimal-type type could be implemented as a +xs:double+ or +xsd:decimal+ type.
+In $$C++$$, a decimal-type could be implemented as a $$C++$$'s +double+ or +float+ type.
+====
+
+=== string-type
+
+A type which can contain textual values, with or without additional constraints.
+
+[NOTE]
+====
+In XSD, a string-type type could be implemented as a +xs:string+ or +xsd:anyURI+ type 
+ (in case we want to add URI scheme constraints to the textual value).
+In $$C++$$, a string-type could be implemented as a $$C++$$'s +std::string+ or +const char*+ type 
+or a wrapper type around a +std::string+ which would add necessary constraints.
+====
+    
+
+=== interpreter
+
+The interpreter is the implementation that will read the AOSL data and apply it's semantic.
+
+[NOTE]
+====
+Examples of interpreters implementation: 
+
+    - an exporter converting AOSL data to another specific format;
+    - a player embedded in a web page to interpret on-the-fly AOSL data and display the result to the reader;
+    - a library interpreting the semantic of AOSL data and providing a description of the 
+        interpreted state of the reading to the user code (for example to allow a preview in an editor,
+        or as part of an implementation of player application).
+====
+
