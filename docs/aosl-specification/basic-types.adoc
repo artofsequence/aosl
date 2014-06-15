@@ -234,7 +234,7 @@ Possible XSD representation:
 
 . +source_uri+ is a type representing the URI identifying a resource.
 . +source_uri+ must be implemented as a string-type with the following additional constraints:
-    - the string-type value must be conformant with the URI scheme specification (see [RFC-3986]).
+    - the text value must be conformant with the URI scheme specification (see [RFC-3986]).
 
 [NOTE]
 ====
@@ -281,7 +281,7 @@ added later to AOSL.
 ====
 Possible XSD representation:
 [source,xml]
-----
+---- 
 
 <xs:complexType name="extension" mixed="true" >
     <xs:sequence>
@@ -292,6 +292,30 @@ Possible XSD representation:
 
 ----
 ====
+
+
+=== name
+
+. +name+ is a type representing a valid textual identifier (in several contexts).
+. +name+ must be implemented as a string-type with the following additional constraints:
+    - the text value must be composed of at least one or more of the following characters:
+       - +A+, +B+, +C+, +D+, +E+, +F+, +G+, +H+, +I+, +J+, +K+, +L+, +M+, +N+, +O+, +P+, +Q+, +R+, +S+, +T+, +U+, +V+, +W+, +X+, +Y+, +Z+;
+       - +a+, +b+, +c+, +d+, +e+, +f+, +g+, +h+, +i+, +j+, +k+, +l+, +m+, +n+, +o+, +p+, +q+, +r+, +s+, +t+, +u+, +v+, +w+, +x+, +y+, +z+;
+       - +0+, +1+, +2+, +3+, +4+, +5+, +6+, +7+, +8+, +9+;
+       - +-+ (hyphen), +_+ (underscore).
+    - the text value must not be composed of any other character.
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+---- 
+
+<xs:simpleType name="name">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="([a-zA-Z0-9_-])+" />
+    </xs:restriction>
+</xs:simpleType>
 
 
 
