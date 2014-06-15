@@ -317,5 +317,30 @@ Possible XSD representation:
     </xs:restriction>
 </xs:simpleType>
 
+----
+====
+
+
+=== email
+
+. +email+ is a type representing a valid e-mail address.
+. +name+ must be implemented as a string-type with the following additional constraints:
+    - the text value must be conformant with <<rfc-email,e-mail address specifications as described  reference documents>>.
+
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+---- 
+
+	<xs:simpleType name="email">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" />
+		</xs:restriction>
+	</xs:simpleType>
+
+----
+====
 
 
