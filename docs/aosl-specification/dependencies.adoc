@@ -85,5 +85,5 @@ from this XSD document, which have the following root element definition (englob
 </xs:schema>
 ----
 +
-As specified in this XSD sample, *aos* is the XML namespace is used for xml tags specific AOSL.
+As specified in this XSD sample, *aos* is the XML namespace used for xml tags specific AOSL.
 
