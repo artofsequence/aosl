@@ -5,6 +5,9 @@ v1.0-draft
 :doctype: book
 :toc:
 :numbered:
+:sectanchors:
+:sectlinks:
+:idprefix: spec-
 
 include::general.adoc[]
 
