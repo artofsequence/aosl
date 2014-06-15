@@ -261,5 +261,37 @@ Possible XSD representation:
 ====
 
 
+=== extension
+
+. +extension+ is a type representing an extension point.
+. +extension+'s attributes and child elements are unspecified: it can contain any attributes and any elements.
+. An interpreter is allowed to read and interpret the data in an +extension+ element if it can.
+. An interpreter unable to read or interpret the data in an +extension+ element must ignore these data.
+
+[NOTE]
+====
++extension+ allows specifics interpreters implementations to provide additional functionalities which will 
+be ignored by other interpreters implementations which are not able to use them. 
+Therefore, +extension+ is not portable but helps experiment with new fonctionalities which could be 
+added later to AOSL.
+====
+
+    
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+----
+
+<xs:complexType name="extension" mixed="true" >
+    <xs:sequence>
+        <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:anyAttribute />
+</xs:complexType>
+
+----
+====
+
 
 
