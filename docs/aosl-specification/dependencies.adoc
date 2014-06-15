@@ -2,24 +2,44 @@
 
 == Dependencies
 
-. The following referenced documents are indispensable for the application of this document. 
+=== Required References
+
+The following referenced documents are indispensable for the application of this document. 
 For dated references, only the edition cited applies. For undated references, 
-the latest edition of the referenced document (including any amendments) applies.:
+the latest edition of the referenced document (including any amendments) applies:
 
-    - *DOM 4* specification : *"W3C DOM 4"* http://www.w3.org/TR/dom/
-    - *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986
-    - Keywords ("must", "shall") specification: *RFC 2119 - "Key words for use in RFCs to Indicate Requirement Levels"* - http://www.ietf.org/rfc/rfc2119.txt
+[#rfc-dom]
+    * *DOM 4* specification  : *"W3C DOM 4"* http://www.w3.org/TR/dom/ 
+    
+[#rfc-uri]
+    * *URI* specification : *RFC 3986 - "Uniform Resource Identifier (URI): Generic Syntax"* - http://tools.ietf.org/html/rfc3986 
 
-. The following referenced documents are indispensable for the understanding of the examples of this document:
+[#rfc-keywords]
+    * Keywords ("must", "shall") specification: *RFC 2119 - "Key words for use in RFCs to Indicate Requirement Levels"* - http://www.ietf.org/rfc/rfc2119.txt 
+    
+[#rfc-email]
+    * Email formatting specifications: 
+    ** *RFC 3696* - "Application Techniques for Checking and Transformation of Names" -  http://tools.ietf.org/html/rfc3696
+    *** Errata: http://www.rfc-editor.org/errata_search.php?rfc=3696
+    ** *RFC 5321* - "Simple Mail Transfer Protocol" - http://tools.ietf.org/html/rfc5321
+    ** *RFC 5322* - "Internet Message Format" - http://tools.ietf.org/html/rfc5322
 
-    - *XML* specification : "Extensible Markup Language (XML) 1.0 (Fifth Edition)" - http://www.w3.org/TR/2008/REC-xml-20081126/
-    - *XSD* specification: 
-        - "XML Schema Part 1: Structures Second Edition" - http://www.w3.org/TR/xmlschema-1/
-        - "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
-        - "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
+=== Optional References
+    
+The following referenced documents are indispensable for the understanding of the examples of this document:
 
+[#rfc-xml]
+    * *XML* specification : "Extensible Markup Language (XML) 1.0 (Fifth Edition)" - http://www.w3.org/TR/2008/REC-xml-20081126/
+[#rfc-xsd]
+    * *XSD* specification: 
+    ** "XML Schema Part 0: Primer Second Edition" - http://www.w3.org/TR/xmlschema-0/
+    ** "XML Schema Part 1: Structures Second Edition" - http://www.w3.org/TR/xmlschema-1/
+    ** "XML Schema Part 2: Datatypes Second Edition" - http://www.w3.org/TR/xmlschema-2/
+    
+=== References Usage
+    
 . The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", 
-"MAY", and "OPTIONAL" in this document are to be interpreted as described in RFC 2119.
+"MAY", and "OPTIONAL" in this document are to be interpreted as described in <<rfc-keywords,RFC 2119>>.
 
 . The AOSL format specifies requirement applied on data organized following the DOM Node Tree structure. 
 AOSL data must be organized following the DOM Node Tree structure and must additionally follow 
