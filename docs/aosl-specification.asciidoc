@@ -391,7 +391,7 @@ Possible XSD representation:
 
 ==== source_uri
 
-. +source_uri+ is a type representing the URI of a resource.
+. +source_uri+ is a type representing the URI identifying a resource.
 . +source_uri+ must be implemented as a string-type with the following additional constraints:
     - the string-type value must be conformant with the URI scheme specification (see [RFC-3986]).
 
