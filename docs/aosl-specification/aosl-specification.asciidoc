@@ -1,5 +1,5 @@
-AOSL Specification 
-==================
+AOSL 1.0 Specification
+=====================
 A. Joël Lamotte <klaim@artofsequence.org>
 v1.0-draft
 :doctype: book
