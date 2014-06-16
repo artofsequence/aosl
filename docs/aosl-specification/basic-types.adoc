@@ -3,7 +3,7 @@
 
 == Basic Types
 
-=== unit_space
+=== unit_space ===
 
 . +unit_space+ is a type containing values in spatial units.
 . +unit_space+ must be implemented as a  decimal-type.
@@ -20,7 +20,7 @@ Possible XSD representation:
 ----
 ====
 
-=== unit_time
+=== unit_time ===
 
 . +unit_time+ is a type representing values in time units.
 . +unit_time+ must be implemented as a decimal-type.
@@ -38,7 +38,7 @@ Possible XSD representation:
 ====
 
 
-=== value_percent
+=== value_percent ===
 
 . +value_percent+ is a type representing a ratio.
 . +value_percent+ value must be specified using a number between 0 and 100 followed by a +%+ character.
@@ -57,7 +57,7 @@ Possible XSD representation:
 ====
 
 
-=== angle
+=== angle ===
 
 . +angle+ is a type representing a geometric angle.
 . +angle+ must be implemented as a decimal-type.
@@ -77,7 +77,7 @@ Possible XSD representation:
 
 
 
-=== vector
+=== vector ===
 
 . +vector+ is a type representing a geometric 3D vector.
 +
@@ -107,7 +107,7 @@ Possible XSD representation:
 ----
 ====
 
-=== rotation
+=== rotation ===
 
 . +rotation+ is a type representing a geometric 3D rotation around an unspecified center.
 +
@@ -137,7 +137,7 @@ Possible XSD representation:
 ====
 
 
-=== transformation
+=== transformation ===
 
 . +transformation+ is a type representing a geometric 3D transformation that can be applied to an object in space.
 
@@ -170,7 +170,7 @@ Possible XSD representation:
 ====
 
 
-=== box
+=== box ===
 
 . +box+ is a type representing a geometric 3D box in space.
 
@@ -206,7 +206,7 @@ Possible XSD representation:
 ====
 
 
-=== spatial_area
+=== spatial_area ===
 
 . +spatial_area+ is a type representing a 3D area.
 +
@@ -230,7 +230,7 @@ Possible XSD representation:
 ====
 
 
-=== source_uri
+=== source_uri ===
 
 . +source_uri+ is a type representing the URI identifying a resource.
 . +source_uri+ must be implemented as a string-type with the following additional constraints:
@@ -261,7 +261,7 @@ Possible XSD representation:
 ====
 
 
-=== extension
+=== extension ===
 
 . +extension+ is a type representing an extension point.
 . +extension+'s attributes and child elements are unspecified: it can contain any attributes and any elements.
@@ -294,7 +294,7 @@ Possible XSD representation:
 ====
 
 
-=== name
+=== name ===
 
 . +name+ is a type representing a valid textual identifier (in several contexts).
 . +name+ must be implemented as a string-type with the following additional constraints:
@@ -321,7 +321,7 @@ Possible XSD representation:
 ====
 
 
-=== email
+=== email ===
 
 . +email+ is a type representing a valid e-mail address.
 . +name+ must be implemented as a string-type with the following additional constraints:

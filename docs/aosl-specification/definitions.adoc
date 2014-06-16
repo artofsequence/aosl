@@ -1,7 +1,7 @@
 
 == Definitions
 
-=== type
+=== type ===
 
 Specifiy the constraints and usage of data.
 
@@ -10,7 +10,7 @@ Specifiy the constraints and usage of data.
 Add an XML/XSD example here.
 ====
 
-=== element
+=== element ===
 
 An instance of an type, implemented as a node in the DOM Node Tree.
 The constraints of the type are applied to the data stored by the element.
@@ -21,7 +21,7 @@ An element can contain other elements if the constraints described by the type a
 Add an XML example here.
 ====
 
-=== attribute
+=== attribute ===
 
 Key-value property of an element with a semantic is defined by the type.
 
@@ -30,7 +30,7 @@ Key-value property of an element with a semantic is defined by the type.
 Add an XML/XSD example here.
 ====
     
-=== decimal-type
+=== decimal-type ===
 
 A native decimal type.
 
@@ -40,7 +40,7 @@ In XSD, a decimal-type type could be implemented as a +xs:double+ or +xsd:decima
 In $$C++$$, a decimal-type could be implemented as a $$C++$$'s +double+ or +float+ type.
 ====
 
-=== string-type
+=== string-type ===
 
 A type which can contain textual values, with or without additional constraints.
 
@@ -53,7 +53,7 @@ or a wrapper type around a +std::string+ which would add necessary constraints.
 ====
     
 
-=== interpreter
+=== interpreter ===
 
 The interpreter is the implementation that will read the AOSL data and apply it's semantic.
 
