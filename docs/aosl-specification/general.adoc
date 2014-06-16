@@ -4,8 +4,7 @@
 
 === Scope
 
-. This document specifies the Art Of Sequence Language (AOSL) format. 
-This is the specification for version 1.0 of AOSL.
+. **This document specifies the version 1.0 Art Of Sequence Language (AOSL) format.** 
 
 . AOSL is a universal format for representing narratives implemented using digital plateforms. 
 It's purpose is to be a bridge between tools (for authors, publishers and developers), 
