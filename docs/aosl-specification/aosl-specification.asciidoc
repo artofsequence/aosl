@@ -8,6 +8,7 @@ v1.0-draft
 :sectanchors:
 :sectlinks:
 :idprefix: section_
+:source-highlighter: coderay
 
 include::general.adoc[]
 
