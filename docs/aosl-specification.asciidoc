@@ -1,0 +1,8 @@
+
+include::aosl-specification/aosl-specification.asciidoc[]
+
+
+
+
+
+
