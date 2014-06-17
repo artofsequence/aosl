@@ -51,6 +51,31 @@ In XSD, a string-type type could be implemented as a +xs:string+ or +xsd:anyURI+
 In $$C++$$, a string-type could be implemented as a $$C++$$'s +std::string+ or +const char*+ type 
 or a wrapper type around a +std::string+ which would add necessary constraints.
 ====
+
+
+=== identifier ===
+
+An identifier is a a string-type with at least the following additional constraints:
+
+ - the text value must be composed of at least one or more of the following characters:
+    - +A+, +B+, +C+, +D+, +E+, +F+, +G+, +H+, +I+, +J+, +K+, +L+, +M+, +N+, +O+, +P+, +Q+, +R+, +S+, +T+, +U+, +V+, +W+, +X+, +Y+, +Z+;
+    - +a+, +b+, +c+, +d+, +e+, +f+, +g+, +h+, +i+, +j+, +k+, +l+, +m+, +n+, +o+, +p+, +q+, +r+, +s+, +t+, +u+, +v+, +w+, +x+, +y+, +z+;
+    - +0+, +1+, +2+, +3+, +4+, +5+, +6+, +7+, +8+, +9+;
+    - +-+ (hyphen), +_+ (underscore).
+ - the text value must not be composed of any other character.
+	
+[NOTE]
+====
+Possible XSD representation of type which matches the valid-identifier definition:
+[source,xml]
+---- 
+<xs:simpleType name="MyID">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="([a-zA-Z0-9_-])+" />
+	</xs:restriction>
+</xs:simpleType>
+----	
+====
     
 
 === interpreter ===

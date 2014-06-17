@@ -297,13 +297,7 @@ Possible XSD representation:
 === name ===
 
 . +name+ is a type representing a valid textual identifier (in several contexts).
-. +name+ must be implemented as a string-type with the following additional constraints:
-    - the text value must be composed of at least one or more of the following characters:
-       - +A+, +B+, +C+, +D+, +E+, +F+, +G+, +H+, +I+, +J+, +K+, +L+, +M+, +N+, +O+, +P+, +Q+, +R+, +S+, +T+, +U+, +V+, +W+, +X+, +Y+, +Z+;
-       - +a+, +b+, +c+, +d+, +e+, +f+, +g+, +h+, +i+, +j+, +k+, +l+, +m+, +n+, +o+, +p+, +q+, +r+, +s+, +t+, +u+, +v+, +w+, +x+, +y+, +z+;
-       - +0+, +1+, +2+, +3+, +4+, +5+, +6+, +7+, +8+, +9+;
-       - +-+ (hyphen), +_+ (underscore).
-    - the text value must not be composed of any other character.
+. +name+ must be implemented as an <<aoslspecs_identifier, identifier>>.
 
 [NOTE]
 ====
