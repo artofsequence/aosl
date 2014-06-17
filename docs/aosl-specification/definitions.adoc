@@ -42,7 +42,7 @@ In $$C++$$, a decimal-type could be implemented as a $$C++$$'s +double+ or +floa
 
 === string-type ===
 
-A type which can contain textual values, with or without additional constraints.
+A type which can contain textual values --a chain of unicode characters--, with or without additional constraints.
 
 [NOTE]
 ====
