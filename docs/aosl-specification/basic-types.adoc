@@ -233,12 +233,12 @@ Possible XSD representation:
 === source_uri ===
 
 . +source_uri+ is a type representing the URI identifying a resource.
-. +source_uri+ must be implemented as a string-type with the following additional constraints:
+. +source_uri+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
     - the text value must be conformant with the URI scheme specification (see <<rfc-uri,RFC-3986>>).
 +
 [NOTE]
 ====
-As specified in <<rfc-uri,RFC-3986>> (see <<section_required_references>>), an URI can be a local filesystem file address, 
+As specified in <<rfc-uri,RFC-3986>> (see <<aoslspecs_required_references>>), an URI can be a local filesystem file address, 
 an online URL or something else. It is volontarily unspecified here how it must be interpreted.
 As with almost all the values represented in AOSL, the interpreter implementation will define 
 (and provide to tools for preventive checking) it's own additional constraints. 
@@ -324,7 +324,7 @@ Possible XSD representation:
 === email ===
 
 . +email+ is a type representing a valid e-mail address.
-. +name+ must be implemented as a string-type with the following additional constraints:
+. +name+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
     - the text value must be conformant with <<rfc-email,e-mail address specifications as described  reference documents>>.
 
 
