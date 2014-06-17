@@ -296,8 +296,9 @@ Possible XSD representation:
 
 === name ===
 
-. +name+ is a type representing a valid textual identifier (in several contexts).
+. +name+ is a type representing a valid identifier for an element.
 . +name+ must be implemented as an <<aoslspecs_identifier, identifier>>.
+. +name+'s value must be interpreted as the identifier of an element, either for reference or definition.
 
 [NOTE]
 ====
@@ -318,9 +319,8 @@ Possible XSD representation:
 === email ===
 
 . +email+ is a type representing a valid e-mail address.
-. +name+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
+. +email+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
     - the text value must be conformant with <<rfc-email,e-mail address specifications as described  reference documents>>.
-
 
 [NOTE]
 ====
