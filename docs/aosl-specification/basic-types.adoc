@@ -338,3 +338,26 @@ Possible XSD representation:
 ====
 
 
+=== version ===
+
+. +version+ is a type representing a valid textual identifier (in several contexts).
+. +version+ must be implemented as an <<aoslspecs_identifier, identifier>>.
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+---- 
+
+<xs:simpleType name="version">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="([a-zA-Z0-9_-])+" />
+	</xs:restriction>
+</xs:simpleType>
+----
+====
+
+
+
+
+
