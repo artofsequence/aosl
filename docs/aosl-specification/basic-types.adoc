@@ -3,52 +3,52 @@
 
 == Basic Types
 
-=== unit_space ===
+=== aos:unit_space ===
 
-. +unit_space+ is a type containing values in spatial units.
-. +unit_space+ must be implemented as a  decimal-type.
-. +unit_space+ value must be interpreted as a distance from a relative value on an axis defined in a vectorial space.
+. +aos:unit_space+ is a type containing values in spatial units.
+. +aos:unit_space+ must be implemented as a  decimal-type.
+. +aos:unit_space+ value must be interpreted as a distance from a relative value on an axis defined in a vectorial space.
 
 [NOTE]
 ====
 Possible XSD representation:
 [source,xml]
 ----
-<xs:simpleType name="unit_space" >
+<xs:simpleType aos:name="unit_space" >
     <xs:restriction base="xs:double" />
 </xs:simpleType>
 ----
 ====
 
-=== unit_time ===
+=== aos:unit_time ===
 
-. +unit_time+ is a type representing values in time units.
-. +unit_time+ must be implemented as a decimal-type.
-. +unit_time+ value must be interpreted as standard seconds.
+. +aos:unit_time+ is a type representing values in time units.
+. +aos:unit_time+ must be implemented as a decimal-type.
+. +aos:unit_time+ value must be interpreted as standard seconds.
 
 [NOTE]
 ====
 Possible XSD representation:
 [source,xml]
 ----
-<xs:simpleType name="unit_time" >
+<xs:simpleType aos:name="unit_time" >
     <xs:restriction base="xs:double" />
 </xs:simpleType>
 ----
 ====
 
 
-=== value_percent ===
+=== aos:value_percent ===
 
-. +value_percent+ is a type representing a ratio.
-. +value_percent+ value must be specified using a number between 0 and 100 followed by a +%+ character.
+. +aos:value_percent+ is a type representing a ratio.
+. +aos:value_percent+ value must be specified using a number between 0 and 100 followed by a +%+ character.
 
 [NOTE]
 ====
 Possible XSD representation:
 [source,xml]
 ----
-<xs:simpleType name="value_percent" >
+<xs:simpleType aos:name="value_percent" >
     <xs:restriction base="xs:string">
         <xs:pattern value="\d(.\d*)*%" />
     </xs:restriction>
@@ -57,18 +57,18 @@ Possible XSD representation:
 ====
 
 
-=== angle ===
+=== aos:angle ===
 
-. +angle+ is a type representing a geometric angle.
-. +angle+ must be implemented as a decimal-type.
-. +angle+ value must be interpreted in Radian.
+. +aos:angle+ is a type representing a geometric aos:angle.
+. +aos:angle+ must be implemented as a decimal-type.
+. +aos:angle+ value must be interpreted in Radian.
 
 [NOTE]
 ====
 Possible XSD representation:
 [source,xml]
 ----
-<xs:simpleType name="angle" >
+<xs:simpleType aos:name="angle" >
     <xs:restriction base="xs:double" />
 </xs:simpleType>
 ----
@@ -77,19 +77,19 @@ Possible XSD representation:
 
 
 
-=== vector ===
+=== aos:vector ===
 
-. +vector+ is a type representing a geometric 3D vector.
+. +aos:vector+ is a type representing a geometric 3D vector.
 +
-NOTE: +vector+ is typically used to represent either a position in space (relative to the origin), or a translation or a direction.
+NOTE: +aos:vector+ is typically used to represent either a position in space (relative to the origin), or a translation or a direction.
 
-. +vector+ must expose the following attributes:
+. +aos:vector+ must expose the following attributes:
 +
 |===
 | *Attribute Name* | *Type* | *Default value* | *Semantic* 
-| +x+ | +unit_space+ | 0.0 | Represents a distance on the X axis in 3D vectorial space. 
-| +y+ | +unit_space+ | 0.0 | Represents a distance on the Y axis in 3D vectorial space. 
-| +z+ | +unit_space+ | 0.0 | Represents a distance on the Z axis in 3D vectorial space. 
+| +x+ | +aos:unit_space+ | 0.0 | Represents a distance on the X axis in 3D vectorial space. 
+| +y+ | +aos:unit_space+ | 0.0 | Represents a distance on the Y axis in 3D vectorial space. 
+| +z+ | +aos:unit_space+ | 0.0 | Represents a distance on the Z axis in 3D vectorial space. 
 |===
 
 
@@ -98,28 +98,28 @@ NOTE: +vector+ is typically used to represent either a position in space (relati
 Possible XSD representation:
 [source,xml]
 ----
-<xs:complexType name="vector" >
-    <xs:attribute name="x" type="aos:unit_space" default="0.0" />
-    <xs:attribute name="y" type="aos:unit_space" default="0.0" />
-    <xs:attribute name="z" type="aos:unit_space" default="0.0" />
+<xs:complexType aos:name="vector" >
+    <xs:attribute aos:name="x" type="aos:unit_space" default="0.0" />
+    <xs:attribute aos:name="y" type="aos:unit_space" default="0.0" />
+    <xs:attribute aos:name="z" type="aos:unit_space" default="0.0" />
 </xs:complexType>
 
 ----
 ====
 
-=== rotation ===
+=== aos:rotation ===
 
-. +rotation+ is a type representing a geometric 3D rotation around an unspecified center.
+. +aos:rotation+ is a type representing a geometric 3D rotation around an unspecified center.
 +
-NOTE: +rotation+ is typically used to represent either an orientation in space, or a rotation.
+NOTE: +aos:rotation+ is typically used to represent either an orientation in space, or a rotation.
 
-. +rotation+ must expose the following attributes:
+. +aos:rotation+ must expose the following attributes:
 +
 |===
 | *Attribute Name* | *Type* | *Default value* | *Semantic* 
-| +yaw+   | +angle+ | 0.0 | Represents a rotation around the X axis in a 3D vectorial space. 
-| +pitch+  | +angle+ | 0.0 | Represents a rotation around the Y axis in a 3D vectorial space. 
-| +roll+     | +angle+ | 0.0 | Represents a rotation around the Z axis in a 3D vectorial space. 
+| +yaw+   | +aos:angle+ | 0.0 | Represents a aos:rotation around the X axis in a 3D vectorial space. 
+| +pitch+  | +aos:angle+ | 0.0 | Represents a aos:rotation around the Y axis in a 3D vectorial space. 
+| +roll+    | +aos:angle+ | 0.0 | Represents a aos:rotation around the Z axis in a 3D vectorial space. 
 |===
 
 [NOTE]
@@ -127,28 +127,28 @@ NOTE: +rotation+ is typically used to represent either an orientation in space, 
 Possible XSD representation:
 [source,xml]
 ----
-<xs:complexType name="rotation" >    
-    <xs:attribute name="yaw"  type="aos:angle" default="0.0" />
-    <xs:attribute name="pitch" type="aos:angle" default="0.0" />
-    <xs:attribute name="roll"    type="aos:angle" default="0.0" />
+<xs:complexType aos:name="rotation" >    
+    <xs:attribute aos:name="yaw"  type="aos:angle" default="0.0" />
+    <xs:attribute aos:name="pitch" type="aos:angle" default="0.0" />
+    <xs:attribute aos:name="roll"   type="aos:angle" default="0.0" />
 </xs:complexType>
 
 ----
 ====
 
 
-=== transformation ===
+=== aos:transformation ===
 
-. +transformation+ is a type representing a geometric 3D transformation that can be applied to an object in space.
+. +aos:transformation+ is a type representing a geometric 3D transformation that can be applied to an object in space.
 
-. +transformation+ is composed of the following elements which can appear in any order:
+. +aos:transformation+ is composed of the following elements which can appear in any order:
 +
 |===
-| *Element Name*  | *Type*          | *Occurence*      | *Semantic*    
-| +translation+       | +vector+        | Once or none.     | Represents a translation applied to the subject of the +transformation+. 
-| +scale+              | +vector+        | Once or none.     | Represents an homotetie applied to the subject of the +transformation+. 
-| +rotation+          | +vector+        | Once or none.     | Represents a rotation applied to the subject of the +transformation+, relative to the +origin+ point. 
-| +origin+              | +vector+    | Once or none.     | Represents an homotetie applied to the subject of the +transformation+. 
+| *Element Name*  | *Type*                   | *Occurence*      | *Semantic*    
+| +translation+       | +aos:vector+         | Once or none.     | Represents a translation applied to the subject of the +aos:transformation+. 
+| +scale+              | +aos:vector+          | Once or none.     | Represents an homotetie applied to the subject of the +aos:transformation+. 
+| +aos:rotation+    | +aos:vector+          | Once or none.     | Represents a aos:rotation applied to the subject of the +aos:transformation+, relative to the +origin+ point. 
+| +origin+              | +aos:vector+         | Once or none.     | Represents an homotetie applied to the subject of the +aos:transformation+. 
 |===
 
 [NOTE]
@@ -157,12 +157,12 @@ Possible XSD representation:
 [source,xml]
 ----
 
-<xs:complexType name="transformation">
+<xs:complexType aos:name="transformation">
     <xs:all>
-        <xs:element name="translation" type="aos:vector"    minOccurs="0"  maxOccurs="1" />
-        <xs:element name="scale"        type="aos:vector"     minOccurs="0" maxOccurs="1" />
-        <xs:element name="rotation"     type="aos:rotation"  minOccurs="0"  maxOccurs="1" />
-        <xs:element name="origin"        type="aos:vector"     minOccurs="0" maxOccurs="1" />
+        <xs:element aos:name="translation"      type="aos:aos:vector"       minOccurs="0"  maxOccurs="1" />
+        <xs:element aos:name="scale"                type="aos:aos:vector"       minOccurs="0"   maxOccurs="1" />
+        <xs:element aos:name="aos:rotation"     type="aos:aos:rotation"     minOccurs="0"  maxOccurs="1" />
+        <xs:element aos:name="origin"               type="aos:aos:vector"       minOccurs="0"   maxOccurs="1" />
     </xs:all>
 </xs:complexType>
 
@@ -170,22 +170,22 @@ Possible XSD representation:
 ====
 
 
-=== box ===
+=== aos:box ===
 
-. +box+ is a type representing a geometric 3D box in space.
+. +aos:box+ is a type representing a geometric 3D box in space.
 
-. +box+ is composed of the following elements which can appear in any order:
+. +aos:box+ is composed of the following elements which can appear in any order:
 +
 |===
-| *Element Name*  | *Type*          | *Occurence*      | *Semantic*     
-| +size+       | +vector+        | Once or none.    |
-    Size of the box.
-    Each one of the axes value gives the length of the corresponding edges of the box.
+| *Element Name*              | *Type*                              | *Occurence*      | *Semantic*     
+| +size+                            | +aos:vector+                     | Once or none.    |
+    Size of the aos:box.
+    Each one of the axes value gives the length of the corresponding edges of the aos:box.
     If not provided, the default size should be determined by the implementation.
-    In this case, if it is the ouput or input box of a graphic object, the default value is 100% of the resource size.  
-| +transformation+              | +transformation+        | Once or none.  |
+    In this case, if it is the ouput or input aos:box of a graphic object, the default value is 100% of the resource size.  
+| +aos:transformation+       | +aos:transformation+        | Once or none.  |
     Transformation defining the position, 
-    orientation and scale factor of this box, 
+    orientation and scale factor of this aos:box, 
     relative to the parent object or the canvas origin if no parent.  
 |===
 
@@ -195,10 +195,10 @@ Possible XSD representation:
 [source,xml]
 ----
 
-<xs:complexType name="box">
+<xs:complexType aos:name="box">
     <xs:all>
-        <xs:element name="size" type="aos:vector" minOccurs="0" />
-        <xs:element name="transformation" type="aos:transformation" minOccurs="0" />
+        <xs:element aos:name="size"                       type="aos:aos:vector" minOccurs="0"             />
+        <xs:element aos:name="aos:transformation" type="aos:aos:transformation" minOccurs="0" />
     </xs:all>
 </xs:complexType>
 
@@ -206,13 +206,13 @@ Possible XSD representation:
 ====
 
 
-=== spatial_area ===
+=== aos:spatial_area ===
 
-. +spatial_area+ is a type representing a 3D area.
+. +aos:spatial_area+ is a type representing a 3D area.
 +
 WARNING: Needs a lot of clarifications...maybe just remove that type?
 
-. +spatial_area+ must be implemented as a +vector+ and must expose +vector+'s interface.
+. +aos:spatial_area+ must be implemented as a +aos:vector+ and must expose +aos:vector+'s interface.
 
 [NOTE]
 ====
@@ -220,9 +220,9 @@ Possible XSD representation:
 [source,xml]
 ----
 
-<xs:complexType name="spatial_area">
+<xs:complexType aos:name="aos:spatial_area">
     <xs:complexContent>
-        <xs:extension base="aos:vector" />
+        <xs:aos:extension base="aos:aos:vector" />
     </xs:complexContent>
 </xs:complexType>
 
@@ -230,10 +230,10 @@ Possible XSD representation:
 ====
 
 
-=== source_uri ===
+=== aos:source_uri ===
 
-. +source_uri+ is a type representing the URI identifying a resource.
-. +source_uri+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
+. +aos:source_uri+ is a type representing the URI identifying a resource.
+. +aos:source_uri+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
     - the text value must be conformant with the URI scheme specification (see <<rfc-uri,RFC-3986>>).
 +
 [NOTE]
@@ -253,26 +253,26 @@ Possible XSD representation:
 [source,xml]
 ----
 
-	<xs:simpleType name="source_uri">
-		<xs:restriction base="xs:anyURI" />
-	</xs:simpleType>
+    <xs:simpleType aos:name="source_uri">
+        <xs:restriction base="xs:anyURI" />
+    </xs:simpleType>
 
 ----
 ====
 
 
-=== extension ===
+=== aos:extension ===
 
-. +extension+ is a type representing an extension point.
-. +extension+'s attributes and child elements are unspecified: it can contain any attributes and any elements.
-. An interpreter is allowed to read and interpret the data in an +extension+ element if it can.
-. An interpreter unable to read or interpret the data in an +extension+ element must ignore these data.
+. +aos:extension+ is a type representing an extension point.
+. +aos:extension+'s attributes and child elements are unspecified: it can contain any attributes and any elements.
+. An interpreter is allowed to read and interpret the data in an +aos:extension+ element if it can.
+. An interpreter unable to read or interpret the data in an +aos:extension+ element must ignore these data.
 +
 [NOTE]
 ====
-+extension+ allows specifics interpreters implementations to provide additional functionalities which will 
++aos:extension+ allows specifics interpreters implementations to provide additional functionalities which will 
 be ignored by other interpreters implementations which are not able to use them. 
-Therefore, +extension+ is not portable but helps experiment with new fonctionalities which could be 
+Therefore, +aos:extension+ is not portable but helps experiment with new fonctionalities which could be 
 added later to AOSL.
 ====
 
@@ -283,7 +283,7 @@ Possible XSD representation:
 [source,xml]
 ---- 
 
-<xs:complexType name="extension" mixed="true" >
+<xs:complexType aos:name="extension" mixed="true" >
     <xs:sequence>
         <xs:any processContents="lax" minOccurs="0" maxOccurs="unbounded" />
     </xs:sequence>
@@ -294,11 +294,11 @@ Possible XSD representation:
 ====
 
 
-=== name ===
+=== aos:name ===
 
-. +name+ is a type representing a valid identifier for an element.
-. +name+ must be implemented as an <<aoslspecs_identifier, identifier>>.
-. +name+'s value must be interpreted as the identifier of an element, either for reference or definition.
+. +aos:name+ is a type representing a valid identifier for an element.
+. +aos:name+ must be implemented as an <<aoslspecs_identifier, identifier>>.
+. +aos:name+'s value must be interpreted as the identifier of an element, either for reference or definition.
 
 [NOTE]
 ====
@@ -306,7 +306,7 @@ Possible XSD representation:
 [source,xml]
 ---- 
 
-<xs:simpleType name="name">
+<xs:simpleType aos:name="name">
     <xs:restriction base="xs:string">
         <xs:pattern value="([a-zA-Z0-9_-])+" />
     </xs:restriction>
@@ -316,11 +316,11 @@ Possible XSD representation:
 ====
 
 
-=== email ===
+=== aos:email ===
 
-. +email+ is a type representing a valid e-mail address.
-. +email+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
-    - the text value must be conformant with <<rfc-email,e-mail address specifications as described  reference documents>>.
+. +aos:email+ is a type representing a valid e-mail address.
+. +aos:email+ must be implemented as a <<aoslspecs_string_type,string-type>> with the following additional constraints:
+    - the text value must be conformant with <<rfc-aos:email,e-mail address specifications as described  reference documents>>.
 
 [NOTE]
 ====
@@ -328,20 +328,20 @@ Possible XSD representation:
 [source,xml]
 ---- 
 
-	<xs:simpleType name="email">
-		<xs:restriction base="xs:string">
-			<xs:pattern value="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" />
-		</xs:restriction>
-	</xs:simpleType>
+<xs:simpleType aos:name="email">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" />
+    </xs:restriction>
+</xs:simpleType>
 
 ----
 ====
 
 
-=== version ===
+=== aos:version ===
 
-. +version+ is a type representing a valid textual identifier (in several contexts).
-. +version+ must be implemented as an <<aoslspecs_identifier, identifier>>.
+. +aos:version+ is a type representing a valid textual identifier (in several contexts).
+. +aos:version+ must be implemented as an <<aoslspecs_identifier, identifier>>.
 
 [NOTE]
 ====
@@ -349,14 +349,46 @@ Possible XSD representation:
 [source,xml]
 ---- 
 
-<xs:simpleType name="version">
-	<xs:restriction base="xs:string">
-		<xs:pattern value="([a-zA-Z0-9_-])+" />
-	</xs:restriction>
+<xs:simpleType aos:name="version">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="([a-zA-Z0-9_-])+" />
+    </xs:restriction>
 </xs:simpleType>
 ----
 ====
 
+
+=== aos:property ===
+
+. +aos:property+ is a type representing a node in a hierarchical tree storage of key-value.
+. +aos:property+ is composed of none or any number of +aos:property+ instances which we will refer to as child-properties.
+    Child-properties must have unique +aos:name+ attribute values compared to each other.
+. +aos:property+ is composed of a +aos:name+ attribute of type +aos:aos:name+ 
+    which identifies the attribute instance uniquely for a group of +aos:property+.
+. +aos:rotation+ must expose the following attributes:
++
+|===
+| *Attribute Name* | *Type* | *Default value* | *Semantic* 
+| +yaw+   | +aos:angle+ | 0.0 | Represents a aos:rotation around the X axis in a 3D vectorial space. 
+| +pitch+  | +aos:angle+ | 0.0 | Represents a aos:rotation around the Y axis in a 3D vectorial space. 
+| +roll+    | +aos:angle+ | 0.0 | Represents a aos:rotation around the Z axis in a 3D vectorial space. 
+|===
+
+
+[NOTE]
+====
+Possible XSD representation:
+[source,xml]
+---- 
+
+<xs:complexType aos:name="property" mixed="true" final="#all" >
+    <xs:sequence>
+        <xs:element aos:name="aos:property" type="aos:aos:property" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute aos:name="aos:name" type="aos:aos:name"  use="required" />
+</xs:complexType>
+----
+====
 
 
 
