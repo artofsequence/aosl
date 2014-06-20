@@ -67,7 +67,8 @@ This imply that all tags specific to AOSL are not prefixed in the examples.
     
 . An XSD scheme file enforcing this specification for XML data is provided at http://artofsequence.org/aosl/1.0 
 It can be used by tools to check the validity of AOSL data as XML.
-In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted 
+
+. In the examples of this document using XSD, we will assume (if not specified) that the XSD code is extracted 
 from this XSD document, which have the following root element definition (englobing the example code):
 +
 [source,xml]
