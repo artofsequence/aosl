@@ -59,7 +59,7 @@ Possible XSD representation:
 
 === aos:angle ===
 
-. +aos:angle+ is a type representing a geometric aos:angle.
+. +aos:angle+ is a type representing a geometric angle.
 . +aos:angle+ must be implemented as a decimal-type.
 . +aos:angle+ value must be interpreted in Radian.
 
@@ -197,7 +197,7 @@ Possible XSD representation:
 
 <xs:complexType aos:name="box">
     <xs:all>
-        <xs:element aos:name="size"                       type="aos:aos:vector" minOccurs="0"             />
+        <xs:element aos:name="size" type="aos:aos:vector" minOccurs="0" />
         <xs:element aos:name="aos:transformation" type="aos:aos:transformation" minOccurs="0" />
     </xs:all>
 </xs:complexType>
